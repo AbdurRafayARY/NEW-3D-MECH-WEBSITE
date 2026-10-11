@@ -1,0 +1,8 @@
+{"items":[
+{"icon":"fa-solid fa-cube","title":"SolidWorks (Parametric & Surfaces)","percentage":95,"visible":true},
+{"icon":"fa-solid fa-gear","title":"True Involute Gear Engineering","percentage":90,"visible":true},
+{"icon":"fa-solid fa-calculator","title":"MATLAB Numerical Analysis","percentage":85,"visible":true},
+{"icon":"fa-solid fa-pen-ruler","title":"AutoCAD / 2D Drafting","percentage":88,"visible":true},
+{"icon":"fa-solid fa-wind","title":"CFD (Ansys / SimScale)","percentage":75,"visible":true},
+{"icon":"fa-solid fa-robot","title":"Arduino / LabVIEW","percentage":80,"visible":true}
+]}

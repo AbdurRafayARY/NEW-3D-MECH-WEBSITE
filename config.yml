@@ -1,0 +1,162 @@
+# ---------------------------------------------------------------
+# Decap CMS config. CHANGE the 'repo' line below to your own
+# GitHub  username/repository  (example: abdurrafay/3dmechdesign)
+# ---------------------------------------------------------------
+backend:
+  name: github
+  repo: YOUR_USERNAME/YOUR_REPO
+  branch: main
+
+# Lets you test the admin on your own computer (see README)
+local_backend: true
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: site
+    label: "Site & Page Text"
+    files:
+      - name: site
+        label: "Main Site Content"
+        file: content/site.json
+        fields:
+          - { label: "Site Name", name: name, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
+          - { label: "Meta Description (Google)", name: description, widget: text }
+          - label: "Hero Section"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Badge", name: badge, widget: string }
+              - { label: "Title Line 1", name: title1, widget: string }
+              - { label: "Title Line 2 (gradient)", name: title2, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Metric 1 Value", name: metric1_value, widget: string }
+              - { label: "Metric 1 Label", name: metric1_label, widget: string }
+              - { label: "Metric 2 Value", name: metric2_value, widget: string }
+              - { label: "Metric 2 Label", name: metric2_label, widget: string }
+              - { label: "Metric 3 Value", name: metric3_value, widget: string }
+              - { label: "Metric 3 Label", name: metric3_label, widget: string }
+              - { label: "Button 1 Text", name: cta1, widget: string }
+              - { label: "Button 2 Text", name: cta2, widget: string }
+              - { label: "Profile / Hero Image", name: image, widget: image, required: false }
+          - label: "About Section"
+            name: about
+            widget: object
+            fields:
+              - { label: "Badge", name: badge, widget: string }
+              - { label: "Title", name: title, widget: string }
+              - { label: "Subtitle", name: subtitle, widget: string }
+              - { label: "Founder Name", name: founder_name, widget: string }
+              - { label: "Founder Title", name: founder_title, widget: string }
+              - { label: "Our Story (blank line = new paragraph)", name: story, widget: text }
+              - { label: "Vision", name: vision, widget: text }
+              - { label: "Education Tab", name: education, widget: text }
+              - { label: "Leadership Tab", name: leadership, widget: text }
+              - { label: "About Image", name: image, widget: image, required: false }
+          - label: "Contact Details"
+            name: contact
+            widget: object
+            fields:
+              - { label: "Email", name: email, widget: string }
+              - { label: "Phone (display)", name: phone, widget: string }
+              - { label: "WhatsApp (digits only, with country code)", name: whatsapp, widget: string }
+              - { label: "Address", name: address, widget: string }
+              - { label: "Business Hours", name: hours, widget: string }
+              - { label: "Response Time", name: response_time, widget: string }
+          - label: "Social Links (full https:// URLs; leave empty to hide)"
+            name: social
+            widget: object
+            fields:
+              - { label: "LinkedIn", name: linkedin, widget: string, required: false }
+              - { label: "Instagram", name: instagram, widget: string, required: false }
+              - { label: "Facebook", name: facebook, widget: string, required: false }
+              - { label: "YouTube", name: youtube, widget: string, required: false }
+              - { label: "X / Twitter", name: twitter, widget: string, required: false }
+              - { label: "GitHub", name: github, widget: string, required: false }
+          - label: "Footer"
+            name: footer
+            widget: object
+            fields:
+              - { label: "About Text", name: about, widget: text }
+              - { label: "Copyright Text", name: copyright, widget: string }
+
+  - name: lists
+    label: "Services, Projects & More"
+    files:
+      - name: services
+        label: "Services"
+        file: content/services.json
+        fields:
+          - label: "Services"
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (Font Awesome class)", name: icon, widget: string, default: "fa-solid fa-cube", hint: "Browse icons at fontawesome.com/icons" }
+              - { label: "Title", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Show on site", name: visible, widget: boolean, default: true }
+
+      - name: projects
+        label: "Projects"
+        file: content/projects.json
+        fields:
+          - label: "Projects"
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Category", name: category, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Tools (comma separated)", name: tools, widget: string, required: false }
+              - { label: "Image", name: image, widget: image, required: false }
+              - { label: "Show on site", name: visible, widget: boolean, default: true }
+
+      - name: skills
+        label: "Skills"
+        file: content/skills.json
+        fields:
+          - label: "Skills"
+            name: items
+            widget: list
+            summary: "{{fields.title}} — {{fields.percentage}}%"
+            fields:
+              - { label: "Icon (Font Awesome class)", name: icon, widget: string, default: "fa-solid fa-cube" }
+              - { label: "Skill", name: title, widget: string }
+              - { label: "Percentage", name: percentage, widget: number, value_type: int, min: 0, max: 100, default: 80 }
+              - { label: "Show on site", name: visible, widget: boolean, default: true }
+
+      - name: insights
+        label: "Insights / Publications"
+        file: content/insights.json
+        fields:
+          - label: "Articles"
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Category", name: category, widget: string }
+              - { label: "Excerpt", name: excerpt, widget: text }
+              - { label: "Date", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Published", name: published, widget: boolean, default: true }
+
+      - name: testimonials
+        label: "Testimonials"
+        file: content/testimonials.json
+        fields:
+          - label: "Testimonials (only add REAL client feedback)"
+            name: items
+            widget: list
+            summary: "{{fields.client_name}}"
+            required: false
+            fields:
+              - { label: "Client Name", name: client_name, widget: string }
+              - { label: "Job Title", name: client_title, widget: string, required: false }
+              - { label: "Company", name: client_company, widget: string, required: false }
+              - { label: "Feedback", name: content, widget: text }
+              - { label: "Rating (1-5)", name: rating, widget: number, value_type: int, min: 1, max: 5, default: 5 }
+              - { label: "Show on site", name: visible, widget: boolean, default: true }

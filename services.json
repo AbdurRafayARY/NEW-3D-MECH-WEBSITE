@@ -1,0 +1,10 @@
+{"items":[
+{"icon":"fa-solid fa-cube","title":"Parametric 3D Modeling","description":"Advanced SolidWorks, Fusion 360, and surface modeling — from concept to production-ready CAD assemblies.","visible":true},
+{"icon":"fa-solid fa-pen-ruler","title":"2D Manufacturing Drawings","description":"ASME Y14.5 compliant drawings with GD&T callouts, BOM tables, and tolerance stack-ups.","visible":true},
+{"icon":"fa-solid fa-gear","title":"Precision Gear Engineering","description":"True involute gear design, custom hobbing, shaping, and inspection arbors for fine-pitch systems.","visible":true},
+{"icon":"fa-solid fa-wind","title":"CFD & Thermal Analysis","description":"Computational fluid dynamics, heat transfer, and thermal management studies using advanced solvers.","visible":true},
+{"icon":"fa-solid fa-calculator","title":"MATLAB & Numerical Analysis","description":"Custom numerical solvers, simulations, and data visualization for engineering problems.","visible":true},
+{"icon":"fa-solid fa-microchip","title":"PID Control & Robotics","description":"Arduino and LabVIEW-based control platforms, line-following robots, and instrumentation.","visible":true},
+{"icon":"fa-solid fa-print","title":"Additive Manufacturing / 3D Printing","description":"DFM-optimized designs ready for FDM, SLA, SLS, and metal printing workflows.","visible":true},
+{"icon":"fa-solid fa-shield-halved","title":"Compliance & Standards","description":"ASME, ISO, and industry-specific standards consulting with full documentation.","visible":true}
+]}

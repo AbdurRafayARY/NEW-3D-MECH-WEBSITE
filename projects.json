@@ -1,0 +1,6 @@
+{"items":[
+{"title":"Mahfooz Wheelchair Prototype","category":"Mechanical Design","description":"A custom mobility device designed with stair-lifting capabilities and adjustable angles for seamless multi-story building access.","image":"","tools":"SolidWorks","visible":true},
+{"title":"Thermal Energy Sand Battery","category":"Thermal Engineering","description":"A lab-scale 3x3x3 foot prototype utilizing silica sand, aluminum chips, and heat exchanger coils for industrial heat recovery.","image":"","tools":"CFD, MATLAB","visible":true},
+{"title":"120 DP Fine-Pitch Gear System","category":"Precision Tooling","description":"Mathematically accurate involute spur gear system alongside custom hobbing, shaping, and inspection arbors for scientific instruments.","image":"","tools":"SolidWorks, Gear Design","visible":true},
+{"title":"Arduino PID Control Platform","category":"Robotics & Controls","description":"Open-source instrumentation platform and line-following robot to measure and validate real-time PID control algorithms.","image":"","tools":"Arduino, C/C++","visible":true}
+]}

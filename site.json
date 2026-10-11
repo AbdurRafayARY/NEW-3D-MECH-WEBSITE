@@ -1,0 +1,52 @@
+{
+  "name": "3D Mech Design",
+  "tagline": "Engineering Excellence",
+  "description": "Precision mechanical engineering, CAD/CAE simulation, digital twin, and Industry 4.0 solutions.",
+  "hero": {
+    "badge": "Design Beyond Boundaries",
+    "title1": "Precision Engineering",
+    "title2": "For The Future",
+    "description": "Founded by Abdur Rafay Yousuf in Karachi, Pakistan, we deliver high-precision CAD modeling, 2D manufacturing drawings, gear design, and computational fluid dynamics (CFD) for domestic and international clients.",
+    "metric1_value": "100+",
+    "metric1_label": "Projects Completed",
+    "metric2_value": "ASME",
+    "metric2_label": "Y14.5 Standards",
+    "metric3_value": "24/7",
+    "metric3_label": "Client Support",
+    "cta1": "View Portfolio",
+    "cta2": "Contact Us",
+    "image": ""
+  },
+  "about": {
+    "badge": "Who We Are",
+    "title": "The Mind Behind The Models",
+    "subtitle": "Self-taught CAD expertise transforming into a full-fledged mechanical design consultancy.",
+    "founder_name": "Abdur Rafay Yousuf",
+    "founder_title": "Founder & Mechanical Design Engineer",
+    "story": "Abdur Rafay Yousuf is the Founder of 3D Mech Design, a mechanical design and engineering consultancy established in 2023. His work focuses on transforming engineering concepts into precise, manufacturable, and performance-driven mechanical solutions.\n\nWith hands-on experience in 3D CAD, mechanical component design, precision gear engineering, engineering drawings, GD&T, product development, and manufacturing support, Abdur Rafay combines engineering fundamentals with practical manufacturing knowledge.\n\nThrough 3D Mech Design, he has worked on projects ranging from precision gear systems and mechanical components to prototypes and industrial products, supporting clients across Pakistan, the United States, and Germany.",
+    "vision": "His vision is to build an engineering company that bridges the gap between CAD design and real-world manufacturing—creating designs that do not simply look correct on a screen, but are engineered to function, manufacture, and perform.",
+    "education": "Currently pursuing a Bachelor's degree in Mechanical Engineering at DHA Suffa University in Karachi, Pakistan, with an expected graduation in 2026. My foundational secondary education in pre-engineering was completed under the Sindh Board. Looking ahead, I am actively exploring graduate degree programs and scholarship opportunities in aerospace, mechatronics, and robotics for 2027 admission across Canada, Germany, Australia, and Italy.",
+    "leadership": "Beyond technical engineering, I've held organizational roles within university student groups. I currently serve as the treasurer for the Management Sciences Society at DHA Suffa University, organizing campus-wide events and managing budgets.",
+    "image": ""
+  },
+  "contact": {
+    "email": "info@3dmechdesign.com",
+    "phone": "+92 370 851 6762",
+    "whatsapp": "923708516762",
+    "address": "Karachi, Sindh, Pakistan",
+    "hours": "Mon – Fri · 09:00 – 18:00 (PKT)",
+    "response_time": "Within 1 business day"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/107649824/",
+    "instagram": "https://www.instagram.com/3d_mechdesign/",
+    "facebook": "",
+    "youtube": "",
+    "twitter": "",
+    "github": ""
+  },
+  "footer": {
+    "about": "Headquartered in Karachi, Pakistan, we provide top-tier mechanical engineering and CAD consulting services worldwide.",
+    "copyright": "3D Mech Design. Founded by Abdur Rafay Yousuf. All rights reserved."
+  }
+}
