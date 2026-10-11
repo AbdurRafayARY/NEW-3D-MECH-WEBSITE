@@ -3,151 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Mech Design — Engineering Excellence | CAD, CAE, Digital Twin</title>
-<meta name="description" content="3D Mech Design delivers world-class mechanical engineering, CAD/CAE simulation, digital twin, and Industry 4.0 solutions for aerospace, automotive, energy, and industrial manufacturers.">
+<title>3D Mech Design — Engineering Excellence | CAD · CAE · Digital Twin · Industry 4.0</title>
+<meta name="description" content="3D Mech Design delivers world-class mechanical engineering, CAD/CAE simulation, digital twin, automation, and Industry 4.0 solutions for aerospace, automotive, energy, medical, and advanced manufacturing.">
 <meta name="author" content="3D Mech Design">
-<meta name="theme-color" content="#0b0f15">
+<meta name="theme-color" content="#080b10">
+<meta property="og:title" content="3D Mech Design — Precision Engineering for the Next Industrial Era">
+<meta property="og:description" content="From concept CAD to certified digital twins — we engineer the products that move the world.">
+<meta property="og:type" content="website">
 
-<!-- ======================================================================
-     EXTERNAL ASSETS & FONTS
-     ====================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
 
 <style>
-/* ======================================================================
-   DESIGN TOKENS / CSS VARIABLES
-   ====================================================================== */
+/* =========================================================================
+   1. DESIGN TOKENS — CSS CUSTOM PROPERTIES
+   ========================================================================= */
 :root {
-  --bg:           #080b10;
-  --bg-alt:       #0d121a;
-  --bg-elev:      #121924;
-  --bg-card:      #161f2c;
-  --surface:      #1c2634;
-  --border:       #24303f;
-  --border-soft:  #1a2431;
-  --text:         #eef3f9;
-  --text-2:       #a3b1c2;
-  --text-3:       #6d7d8f;
-  --accent:       #00d4ff;
-  --accent-2:     #0091c2;
-  --accent-glow:  rgba(0, 212, 255, 0.14);
-  --violet:       #7c5cff;
-  --green:        #2ee6a8;
-  --amber:        #ffb547;
-  --red:          #ff5c7a;
-  --radius-s:     8px;
-  --radius-m:     14px;
-  --radius-l:     22px;
-  --radius-xl:    32px;
-  --shadow-1:     0 6px 24px rgba(0,0,0,.35);
-  --shadow-2:     0 18px 48px rgba(0,0,0,.5);
-  --shadow-glow:  0 0 60px rgba(0,212,255,.18);
-  --ease:         cubic-bezier(.22,.9,.35,1);
-  --font:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --mono:         'JetBrains Mono', ui-monospace, monospace;
-  --maxw:         1280px;
+  --bg:            #070a0f;
+  --bg-alt:        #0b0f16;
+  --bg-elev:       #10161f;
+  --bg-card:       #141b26;
+  --bg-card-hi:    #1a2230;
+  --surface:       #1c2635;
+  --border:        #232f3f;
+  --border-soft:   #1a2330;
+  --text:          #f0f4fa;
+  --text-2:        #a7b5c7;
+  --text-3:        #6f8096;
+  --text-4:        #4a5a6d;
+
+  --accent:        #00d4ff;
+  --accent-2:      #0090be;
+  --accent-3:      #00a3cc;
+  --accent-glow:   rgba(0, 212, 255, 0.14);
+  --accent-soft:   rgba(0, 212, 255, 0.08);
+
+  --violet:        #7c5cff;
+  --violet-glow:   rgba(124, 92, 255, 0.15);
+  --green:         #2ee6a8;
+  --green-glow:    rgba(46, 230, 168, 0.15);
+  --amber:         #ffb547;
+  --red:           #ff5c7a;
+  --pink:          #ff6b9d;
+
+  --grad-1:        linear-gradient(120deg, var(--accent), var(--violet));
+  --grad-2:        linear-gradient(120deg, var(--accent), var(--green));
+  --grad-3:        linear-gradient(135deg, #0a1a2c, #132a44 50%, #1a1f3a);
+  --grad-text:     linear-gradient(120deg, #00d4ff 0%, #7c5cff 45%, #2ee6a8 100%);
+
+  --radius-xs:     6px;
+  --radius-s:      10px;
+  --radius-m:      16px;
+  --radius-l:      24px;
+  --radius-xl:     32px;
+  --radius-pill:   999px;
+
+  --shadow-1:      0 4px 18px rgba(0,0,0,.3);
+  --shadow-2:      0 12px 40px rgba(0,0,0,.45);
+  --shadow-3:      0 24px 60px rgba(0,0,0,.55);
+  --shadow-glow:   0 0 60px rgba(0,212,255,.2);
+  --shadow-accent: 0 8px 28px rgba(0,212,255,.35);
+
+  --ease:          cubic-bezier(.22,.9,.35,1);
+  --ease-out:      cubic-bezier(.16,1,.3,1);
+  --ease-bounce:   cubic-bezier(.34,1.56,.64,1);
+
+  --font:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono:          'JetBrains Mono', ui-monospace, monospace;
+
+  --maxw:          1320px;
+  --header-h:      76px;
+  --topbar-h:      40px;
 }
 
 [data-theme="light"] {
-  --bg:           #f6f8fc;
-  --bg-alt:       #ffffff;
-  --bg-elev:      #ffffff;
-  --bg-card:      #ffffff;
-  --surface:      #eef2f8;
-  --border:       #dce3ee;
-  --border-soft:  #e8edf5;
-  --text:         #0a1626;
-  --text-2:       #43556c;
-  --text-3:       #78899c;
-  --accent:       #0077b6;
-  --accent-2:     #005f8c;
-  --accent-glow:  rgba(0,119,182,.1);
-  --shadow-1:     0 6px 24px rgba(10,30,60,.08);
-  --shadow-2:     0 18px 48px rgba(10,30,60,.14);
+  --bg:            #f7f9fc;
+  --bg-alt:        #ffffff;
+  --bg-elev:       #ffffff;
+  --bg-card:       #ffffff;
+  --bg-card-hi:    #f4f7fb;
+  --surface:       #eef2f8;
+  --border:        #dbe3ee;
+  --border-soft:   #e8eef6;
+  --text:          #0a1626;
+  --text-2:        #43556c;
+  --text-3:        #78899c;
+  --text-4:        #9aa8ba;
+
+  --accent:        #0077b6;
+  --accent-2:      #005f8c;
+  --accent-3:      #0091c2;
+  --accent-glow:   rgba(0,119,182,.1);
+  --accent-soft:   rgba(0,119,182,.06);
+  --violet:        #5a3ec9;
+  --violet-glow:   rgba(90,62,201,.1);
+
+  --shadow-1:      0 4px 18px rgba(10,30,60,.06);
+  --shadow-2:      0 12px 40px rgba(10,30,60,.1);
+  --shadow-3:      0 24px 60px rgba(10,30,60,.14);
+  --shadow-accent: 0 8px 28px rgba(0,119,182,.3);
 }
 
-/* ======================================================================
-   RESET
-   ====================================================================== */
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* =========================================================================
+   2. RESET & BASE
+   ========================================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
   font-size: 16px;
   font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
   overflow-x: hidden;
   transition: background .35s var(--ease), color .35s var(--ease);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'ss01', 'cv11';
 }
+body.loading { overflow: hidden; }
 img, svg, video { display: block; max-width: 100%; height: auto; }
 a { color: var(--accent); text-decoration: none; transition: color .2s var(--ease); }
 a:hover { color: var(--accent-2); }
-button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-ul { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font: inherit; }
+ul, ol { list-style: none; }
+table { border-collapse: collapse; width: 100%; }
 ::selection { background: var(--accent); color: #041018; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* ======================================================================
-   LAYOUT
-   ====================================================================== */
-.container {
-  width: 100%;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.section { padding: 110px 0; position: relative; }
-.section-sm { padding: 72px 0; }
-.grid { display: grid; gap: 24px; }
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 960px) {
-  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .section { padding: 72px 0; }
-}
-
-/* ======================================================================
-   TYPOGRAPHY
-   ====================================================================== */
+/* =========================================================================
+   3. TYPOGRAPHY
+   ========================================================================= */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
   letter-spacing: -0.025em;
   font-weight: 800;
   color: var(--text);
 }
-h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; }
-h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); }
-h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 700; }
-h4 { font-size: 1.15rem; font-weight: 700; }
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.04em; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
+h3 { font-size: clamp(1.35rem, 2.4vw, 1.9rem); font-weight: 700; }
+h4 { font-size: 1.2rem; font-weight: 700; }
+h5 { font-size: 1rem; font-weight: 700; }
+h6 { font-size: .9rem; font-weight: 700; }
 p { color: var(--text-2); font-size: 1.02rem; }
-.lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; max-width: 620px; }
+strong { color: var(--text); font-weight: 700; }
+.lead { font-size: 1.18rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+.grad-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
 
+/* =========================================================================
+   4. LAYOUT HELPERS
+   ========================================================================= */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container-narrow { max-width: 920px; }
+.section { padding: 110px 0; position: relative; }
+.section-sm { padding: 72px 0; }
+.section-lg { padding: 140px 0; }
+.grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.flex { display: flex; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.text-center { text-align: center; }
+.mt-1 { margin-top: 8px; } .mt-2 { margin-top: 16px; } .mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; } .mt-5 { margin-top: 48px; }
+.mb-1 { margin-bottom: 8px; } .mb-2 { margin-bottom: 16px; } .mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; } .mb-5 { margin-bottom: 48px; }
+
+@media (max-width: 1000px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+  .section-lg { padding: 90px 0; }
+  .container { padding: 0 18px; }
+}
+
+/* =========================================================================
+   5. EYEBROW / SECTION HEAD
+   ========================================================================= */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--mono);
-  font-size: .78rem;
+  font-size: .76rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .14em;
+  letter-spacing: .16em;
   color: var(--accent);
-  background: var(--accent-glow);
-  padding: 7px 16px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-  margin-bottom: 20px;
+  background: var(--accent-soft);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  margin-bottom: 22px;
+  line-height: 1;
 }
 .eyebrow::before {
   content: '';
@@ -155,16 +227,22 @@ p { color: var(--text-2); font-size: 1.02rem; }
   background: var(--accent);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .55; transform: scale(.85); }
 }
 
-.section-head { max-width: 720px; margin-bottom: 64px; }
+.section-head { max-width: 760px; margin-bottom: 60px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head.center .lead { margin-left: auto; margin-right: auto; }
 .section-head h2 { margin-bottom: 18px; }
-.section-head p { font-size: 1.1rem; }
+.section-head .lead { font-size: 1.12rem; }
 
-/* ======================================================================
-   BUTTONS
-   ====================================================================== */
+/* =========================================================================
+   6. BUTTONS
+   ========================================================================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -173,24 +251,38 @@ p { color: var(--text-2); font-size: 1.02rem; }
   padding: 14px 30px;
   font-size: .95rem;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
-  transition: all .25s var(--ease);
+  transition: all .28s var(--ease);
   white-space: nowrap;
   line-height: 1;
+  position: relative;
+  overflow: hidden;
   font-family: inherit;
+  letter-spacing: -.005em;
 }
+.btn i { font-size: .9em; transition: transform .3s var(--ease); }
+.btn:hover i.fa-arrow-right { transform: translateX(5px); }
 .btn-primary {
   background: var(--accent);
   color: #041018;
-  box-shadow: 0 8px 26px rgba(0,212,255,.35);
+  box-shadow: var(--shadow-accent);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,.4), transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
 }
 .btn-primary:hover {
   background: #fff;
   color: #041018;
   transform: translateY(-2px);
-  box-shadow: 0 12px 34px rgba(0,212,255,.5);
+  box-shadow: 0 14px 40px rgba(0,212,255,.55);
 }
+.btn-primary:hover::after { opacity: 1; }
 .btn-ghost {
   background: transparent;
   color: var(--text);
@@ -202,67 +294,231 @@ p { color: var(--text-2); font-size: 1.02rem; }
   color: var(--accent);
   transform: translateY(-2px);
 }
-.btn-lg { padding: 18px 40px; font-size: 1rem; }
+.btn-violet {
+  background: var(--violet);
+  color: #fff;
+  box-shadow: 0 8px 28px var(--violet-glow);
+}
+.btn-violet:hover {
+  background: #6a4be0;
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: #041018;
+}
+.btn-lg { padding: 18px 40px; font-size: 1.02rem; }
 .btn-sm { padding: 10px 20px; font-size: .85rem; }
+.btn-block { width: 100%; }
 
-/* ======================================================================
-   HEADER / NAV
-   ====================================================================== */
-.header {
+/* =========================================================================
+   7. PRELOADER
+   ========================================================================= */
+.preloader {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 18px 0;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  inset: 0;
+  background: var(--bg);
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  transition: opacity .6s var(--ease), visibility .6s;
+}
+.preloader.hide { opacity: 0; visibility: hidden; }
+.preloader-inner { text-align: center; }
+.preloader-mark {
+  width: 72px; height: 72px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  background: var(--grad-1);
+  border-radius: 20px;
+  color: #041018;
+  font-size: 2rem;
+  animation: preRotate 2.4s var(--ease) infinite;
+  box-shadow: 0 0 60px var(--accent-glow);
+}
+@keyframes preRotate {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+}
+.preloader-bar {
+  width: 200px; height: 3px;
+  background: var(--surface);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.preloader-bar::after {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--grad-1);
+  border-radius: 3px;
+  animation: preLoad 1.4s var(--ease) infinite;
+}
+@keyframes preLoad {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+.preloader-text {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--text-3);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* =========================================================================
+   8. COOKIE BANNER
+   ========================================================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-3);
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  transform: translateY(140%);
+  transition: transform .5s var(--ease-bounce);
+}
+.cookie-banner.show { transform: translateY(0); }
+.cookie-banner p { flex: 1; font-size: .9rem; min-width: 240px; margin: 0; }
+.cookie-banner a { color: var(--accent); text-decoration: underline; }
+.cookie-banner-actions { display: flex; gap: 10px; }
+
+/* =========================================================================
+   9. TOP BAR
+   ========================================================================= */
+.topbar {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 10px 0;
+  font-size: .82rem;
+  position: relative;
+  z-index: 998;
+}
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.topbar-left, .topbar-right { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.topbar a, .topbar span {
+  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .82rem;
+}
+.topbar a:hover { color: var(--accent); }
+.topbar i { color: var(--accent); font-size: .78rem; }
+.topbar-lang {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: var(--surface);
+  border-radius: 8px;
+}
+.topbar-lang button {
+  padding: 4px 10px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--text-3);
+  border-radius: 5px;
+  transition: all .2s;
+  text-transform: uppercase;
+}
+.topbar-lang button.active {
+  background: var(--accent);
+  color: #041018;
+}
+.topbar-lang button:hover:not(.active) { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .topbar-left { display: none; }
+}
+
+/* =========================================================================
+   10. HEADER / NAV / MEGA MENU
+   ========================================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid transparent;
   transition: all .3s var(--ease);
 }
 .header.scrolled {
-  padding: 12px 0;
   border-bottom-color: var(--border);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  height: var(--header-h);
 }
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  color: var(--text);
   font-weight: 900;
   font-size: 1.15rem;
   letter-spacing: -.03em;
-  color: var(--text);
+  flex-shrink: 0;
 }
 .logo:hover { color: var(--text); }
 .logo-mark {
-  width: 40px; height: 40px;
+  width: 42px; height: 42px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--accent), var(--violet));
-  border-radius: 11px;
+  background: var(--grad-1);
+  border-radius: 12px;
   color: #041018;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   box-shadow: 0 6px 20px rgba(0,212,255,.35);
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 .logo-mark::after {
   content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.5), transparent 60%);
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(255,255,255,.55), transparent 55%);
 }
+.logo-mark i { position: relative; z-index: 1; }
 .logo-text { display: flex; flex-direction: column; line-height: 1.05; }
-.logo-text span:first-child { font-size: 1.1rem; font-weight: 900; }
+.logo-text span:first-child { font-size: 1.08rem; font-weight: 900; }
 .logo-text span:last-child {
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .18em;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--text-3);
 }
@@ -270,8 +526,11 @@ p { color: var(--text-2); font-size: 1.02rem; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
 }
+.nav-links > li { position: relative; }
 .nav-links a {
   padding: 10px 16px;
   font-size: .92rem;
@@ -279,9 +538,14 @@ p { color: var(--text-2); font-size: 1.02rem; }
   color: var(--text-2);
   border-radius: 8px;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .2s var(--ease);
 }
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a i { font-size: .7rem; transition: transform .3s; }
+.nav-links > li:hover > a > i { transform: rotate(180deg); }
+.nav-links a:hover, .nav-links a.active {
   color: var(--text);
   background: var(--surface);
 }
@@ -296,10 +560,76 @@ p { color: var(--text-2); font-size: 1.02rem; }
   box-shadow: 0 0 8px var(--accent);
 }
 
-.nav-actions { display: flex; align-items: center; gap: 12px; }
-.theme-toggle {
+/* Mega menu */
+.mega-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 780px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-3);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s var(--ease);
+  z-index: 100;
+}
+.nav-links li:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.mega-col h6 {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--text-3);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.mega-col ul { display: grid; gap: 4px; }
+.mega-col a {
+  padding: 10px 12px;
+  display: flex !important;
+  gap: 12px;
+  align-items: flex-start;
+  background: transparent !important;
+  border-radius: 8px;
+  transition: all .2s;
+}
+.mega-col a:hover { background: var(--surface) !important; }
+.mega-col a i {
+  color: var(--accent);
+  font-size: 1rem !important;
+  margin-top: 3px;
+  flex-shrink: 0;
+  transform: none !important;
+}
+.mega-col a strong {
+  display: block;
+  font-size: .9rem;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.mega-col a span {
+  display: block;
+  font-size: .78rem;
+  color: var(--text-3);
+  line-height: 1.4;
+}
+
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.icon-btn {
   width: 42px; height: 42px;
-  display: grid; place-items: center;
+  display: grid;
+  place-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -307,11 +637,12 @@ p { color: var(--text-2); font-size: 1.02rem; }
   font-size: 1rem;
   transition: all .25s var(--ease);
 }
-.theme-toggle:hover {
+.icon-btn:hover {
   color: var(--accent);
   border-color: var(--accent);
-  transform: rotate(15deg);
+  transform: translateY(-2px);
 }
+.theme-toggle:hover { transform: rotate(20deg); }
 
 .menu-btn {
   display: none;
@@ -323,34 +654,50 @@ p { color: var(--text-2); font-size: 1.02rem; }
   color: var(--text);
   font-size: 1.1rem;
 }
-@media (max-width: 960px) {
+
+@media (max-width: 1080px) {
   .nav-links { display: none; }
-  .menu-btn { display: grid; }
-  .nav-links.open {
+  .nav-links.mobile-open {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     position: absolute;
     top: 100%; left: 0; right: 0;
     background: var(--bg-elev);
     padding: 20px;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    align-items: stretch;
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
     animation: slideDown .3s var(--ease);
+    gap: 4px;
   }
-  .nav-links.open a { padding: 14px 16px; }
+  .nav-links.mobile-open a { padding: 14px 16px; }
+  .nav-links.mobile-open .mega-menu {
+    position: static;
+    width: 100%;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding: 12px 4px;
+    grid-template-columns: 1fr;
+    background: transparent;
+  }
+  .menu-btn { display: grid; }
 }
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(-12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ======================================================================
-   HERO
-   ====================================================================== */
+/* =========================================================================
+   11. HERO
+   ========================================================================= */
 .hero {
-  min-height: 100vh;
-  padding: 160px 0 100px;
+  min-height: calc(100vh - var(--header-h) - var(--topbar-h));
+  padding: 100px 0 90px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -359,34 +706,36 @@ p { color: var(--text-2); font-size: 1.02rem; }
 .hero::before {
   content: '';
   position: absolute;
-  top: -20%; right: -10%;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  top: -25%; right: -12%;
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 62%);
   pointer-events: none;
-  animation: float 22s ease-in-out infinite;
+  animation: floatOrb 24s ease-in-out infinite;
 }
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -30%; left: -15%;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(124,92,255,.12) 0%, transparent 65%);
+  bottom: -35%; left: -18%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, var(--violet-glow) 0%, transparent 62%);
   pointer-events: none;
-  animation: float 28s ease-in-out infinite reverse;
+  animation: floatOrb 30s ease-in-out infinite reverse;
 }
-@keyframes float {
+@keyframes floatOrb {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -40px) scale(1.08); }
+  33% { transform: translate(40px, -40px) scale(1.08); }
+  66% { transform: translate(-30px, 30px) scale(.95); }
 }
+
 .hero-grid-bg {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 55% 45%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 55% 45%, black 25%, transparent 78%);
   pointer-events: none;
 }
 
@@ -395,350 +744,774 @@ p { color: var(--text-2); font-size: 1.02rem; }
   z-index: 2;
   display: grid;
   grid-template-columns: 1.15fr .85fr;
-  gap: 60px;
+  gap: 70px;
   align-items: center;
 }
-@media (max-width: 1000px) {
-  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+@media (max-width: 1080px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 50px; }
 }
 
-.hero h1 { margin-bottom: 24px; }
-.hero h1 .grad {
-  background: linear-gradient(120deg, var(--accent) 0%, var(--violet) 55%, var(--green) 100%);
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: var(--radius-pill);
+  font-size: .82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 28px;
+  font-family: var(--mono);
+  letter-spacing: .04em;
+}
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero h1 { margin-bottom: 26px; line-height: 1.05; }
+.hero h1 .rotating {
+  display: inline-block;
+  position: relative;
+  height: 1.05em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.hero h1 .rotating span {
+  display: block;
+  animation: rotateText 9s var(--ease) infinite;
+  background: var(--grad-text);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+@keyframes rotateText {
+  0%, 30% { transform: translateY(0); }
+  33%, 63% { transform: translateY(-1.05em); }
+  66%, 96% { transform: translateY(-2.10em); }
+  100% { transform: translateY(-3.15em); }
+}
+
 .hero-sub {
   font-size: 1.18rem;
   color: var(--text-2);
-  max-width: 560px;
+  max-width: 580px;
   margin-bottom: 40px;
   line-height: 1.7;
 }
+@media (max-width: 1080px) { .hero-sub { margin-left: auto; margin-right: auto; } }
+
 .hero-cta {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 48px;
+  margin-bottom: 46px;
 }
-@media (max-width: 1000px) {
-  .hero-cta { justify-content: center; }
-}
+@media (max-width: 1080px) { .hero-cta { justify-content: center; } }
 
-.hero-stats {
+.hero-trust {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
-}
-@media (max-width: 1000px) { .hero-stats { justify-content: center; } }
-.hero-stat .num {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--text);
-  letter-spacing: -.04em;
-  font-family: var(--mono);
-}
-.hero-stat .num span { color: var(--accent); }
-.hero-stat .lbl {
-  font-size: .78rem;
+  font-size: .85rem;
   color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  font-weight: 600;
-  margin-top: 4px;
 }
+@media (max-width: 1080px) { .hero-trust { justify-content: center; } }
+.hero-trust-avatars {
+  display: flex;
+}
+.hero-trust-avatars span {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: var(--grad-1);
+  display: grid;
+  place-items: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: #041018;
+  margin-left: -8px;
+}
+.hero-trust-avatars span:first-child { margin-left: 0; }
+.hero-trust-avatars span:nth-child(2) { background: linear-gradient(120deg, var(--violet), var(--pink)); color: #fff; }
+.hero-trust-avatars span:nth-child(3) { background: linear-gradient(120deg, var(--green), var(--accent)); color: #041018; }
+.hero-trust-avatars span:nth-child(4) { background: linear-gradient(120deg, var(--amber), var(--red)); color: #041018; }
+.hero-trust-avatars span:nth-child(5) { background: var(--surface); color: var(--text); font-size: .68rem; }
 
-/* Hero visual (animated 3D cube / blueprint) */
+/* Hero visual */
 .hero-visual {
   position: relative;
   aspect-ratio: 1;
-  max-width: 460px;
+  max-width: 480px;
   margin-left: auto;
 }
-@media (max-width: 1000px) { .hero-visual { margin: 0 auto; max-width: 340px; } }
+@media (max-width: 1080px) { .hero-visual { margin: 0 auto; max-width: 360px; } }
+
 .cube-scene {
   width: 100%; height: 100%;
-  perspective: 1200px;
-  display: grid; place-items: center;
+  perspective: 1400px;
+  display: grid;
+  place-items: center;
 }
 .cube {
-  width: 200px; height: 200px;
+  width: 210px; height: 210px;
   position: relative;
   transform-style: preserve-3d;
-  animation: spinCube 22s linear infinite;
+  animation: spinCube 24s linear infinite;
 }
 @keyframes spinCube {
-  from { transform: rotateX(-20deg) rotateY(0deg); }
-  to { transform: rotateX(-20deg) rotateY(360deg); }
+  from { transform: rotateX(-22deg) rotateY(0deg); }
+  to { transform: rotateX(-22deg) rotateY(360deg); }
 }
 .cube-face {
   position: absolute;
-  width: 200px; height: 200px;
+  width: 210px; height: 210px;
   border: 2px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
-  box-shadow: inset 0 0 40px rgba(0,212,255,.25);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  box-shadow: inset 0 0 50px rgba(0,212,255,.25), 0 0 30px rgba(0,212,255,.15);
   display: grid;
   place-items: center;
   font-family: var(--mono);
-  font-size: .7rem;
+  font-size: .74rem;
   color: var(--accent);
-  letter-spacing: .2em;
+  letter-spacing: .24em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 .cube-face::before,
 .cube-face::after {
   content: '';
   position: absolute;
-  inset: 14px;
-  border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--accent) 32%, transparent);
 }
-.cube-face::after { inset: 40px; }
-.f1 { transform: translateZ(100px); }
-.f2 { transform: rotateY(180deg) translateZ(100px); }
-.f3 { transform: rotateY(90deg) translateZ(100px); }
-.f4 { transform: rotateY(-90deg) translateZ(100px); }
-.f5 { transform: rotateX(90deg) translateZ(100px); }
-.f6 { transform: rotateX(-90deg) translateZ(100px); }
+.cube-face::before { inset: 16px; }
+.cube-face::after { inset: 44px; }
+.f1 { transform: translateZ(105px); }
+.f2 { transform: rotateY(180deg) translateZ(105px); }
+.f3 { transform: rotateY(90deg) translateZ(105px); }
+.f4 { transform: rotateY(-90deg) translateZ(105px); }
+.f5 { transform: rotateX(90deg) translateZ(105px); }
+.f6 { transform: rotateX(-90deg) translateZ(105px); }
 
-/* ======================================================================
-   LOGO MARQUEE (trusted by)
-   ====================================================================== */
-.marquee-wrap {
-  padding: 40px 0;
+.hero-orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--border);
+  border-radius: 50%;
+  animation: orbitSpin 40s linear infinite;
+  pointer-events: none;
+}
+.hero-orbit::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: -8px;
+  width: 16px; height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 24px var(--accent), 0 0 40px var(--accent);
+  transform: translateY(-50%);
+}
+.hero-orbit.orbit-2 {
+  inset: 40px;
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+.hero-orbit.orbit-2::after {
+  background: var(--violet);
+  box-shadow: 0 0 24px var(--violet), 0 0 40px var(--violet);
+}
+@keyframes orbitSpin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* =========================================================================
+   12. STATS BAR
+   ========================================================================= */
+.stats-bar {
+  background: var(--bg-alt);
   border-top: 1px solid var(--border-soft);
   border-bottom: 1px solid var(--border-soft);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  pointer-events: none;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 800px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-item { text-align: center; padding: 16px; }
+.stat-num {
+  font-family: var(--mono);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -.05em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.stat-num .plus,
+.stat-num .unit { color: var(--accent); }
+.stat-label {
+  font-size: .82rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-weight: 700;
+}
+
+/* =========================================================================
+   13. MARQUEE (CLIENTS)
+   ========================================================================= */
+.marquee-wrap {
+  padding: 56px 0;
   overflow: hidden;
   position: relative;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-soft);
 }
 .marquee-label {
   text-align: center;
   font-size: .78rem;
   font-family: var(--mono);
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 26px;
+  color: var(--text-4);
+  margin-bottom: 32px;
+  font-weight: 700;
 }
 .marquee {
   display: flex;
-  gap: 70px;
-  animation: scroll 32s linear infinite;
+  gap: 80px;
+  animation: scrollX 42s linear infinite;
   white-space: nowrap;
   width: max-content;
 }
+.marquee:hover { animation-play-state: paused; }
 .marquee-item {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-3);
+  color: var(--text-4);
   letter-spacing: -.02em;
   display: flex;
   align-items: center;
-  gap: 10px;
-  opacity: .65;
-  transition: opacity .3s;
+  gap: 12px;
+  opacity: .7;
+  transition: all .3s;
+  flex-shrink: 0;
 }
 .marquee-item:hover { opacity: 1; color: var(--accent); }
-.marquee-item i { font-size: 1.5rem; }
-@keyframes scroll {
+.marquee-item i { font-size: 1.7rem; }
+@keyframes scrollX {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-/* ======================================================================
-   CARDS
-   ====================================================================== */
-.card {
+/* =========================================================================
+   14. ABOUT
+   ========================================================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 50px; } }
+
+.about-visual {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-l);
+  background: var(--grad-3);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+.about-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.about-visual-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.about-visual-num {
+  font-family: var(--mono);
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: 1;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.about-visual-label {
+  font-family: var(--mono);
+  font-size: .82rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.about-visual-badge {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 16px 22px;
+  z-index: 2;
+  box-shadow: var(--shadow-2);
+}
+.about-visual-badge strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.6rem;
+  color: var(--green);
+  letter-spacing: -.03em;
+}
+.about-visual-badge span {
+  font-size: .72rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 600;
+}
+
+.about-content h2 { margin-bottom: 22px; }
+.about-content p { margin-bottom: 18px; font-size: 1.04rem; }
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 32px;
+}
+@media (max-width: 520px) { .about-features { grid-template-columns: 1fr; } }
+.about-feature {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  transition: all .3s var(--ease);
+}
+.about-feature:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.about-feature i {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 10px;
+  font-size: 1rem;
+}
+.about-feature h5 { font-size: .95rem; margin-bottom: 3px; }
+.about-feature p { font-size: .82rem; color: var(--text-3); margin: 0; }
+
+/* =========================================================================
+   15. PILLARS (CAPGEMINI-INSPIRED)
+   ========================================================================= */
+.pillars-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+@media (max-width: 900px) { .pillars-wrap { grid-template-columns: 1fr; } }
+
+.pillar {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-l);
-  padding: 36px 32px;
-  transition: all .35s var(--ease);
+  padding: 44px 36px;
   position: relative;
   overflow: hidden;
+  transition: all .4s var(--ease);
+  display: flex;
+  flex-direction: column;
 }
-.card::before {
+.pillar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--grad-1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s var(--ease);
+}
+.pillar:hover::before { transform: scaleX(1); }
+.pillar::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+.pillar:hover::after { opacity: 1; }
+.pillar:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  box-shadow: var(--shadow-2);
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--accent);
+  letter-spacing: .22em;
+  font-weight: 700;
+  margin-bottom: 22px;
+  display: block;
+}
+.pillar-icon {
+  width: 60px; height: 60px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 16px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  transition: all .4s var(--ease);
+}
+.pillar:hover .pillar-icon {
+  background: var(--accent);
+  color: #041018;
+  transform: scale(1.08) rotate(-6deg);
+}
+.pillar h3 { font-size: 1.5rem; margin-bottom: 14px; }
+.pillar p { font-size: .96rem; margin-bottom: 24px; flex: 1; }
+.pillar-list { display: grid; gap: 10px; margin-bottom: 24px; }
+.pillar-list li {
+  font-size: .88rem;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pillar-list i { color: var(--green); font-size: .78rem; flex-shrink: 0; }
+.pillar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.pillar-link i { transition: transform .3s var(--ease); }
+.pillar-link:hover i { transform: translateX(6px); }
+
+/* =========================================================================
+   16. SERVICES
+   ========================================================================= */
+.services-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  margin: 0 auto 60px;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+.services-tab {
+  padding: 12px 22px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text-3);
+  border-radius: var(--radius-pill);
+  transition: all .25s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.services-tab i { font-size: .85rem; }
+.services-tab:hover { color: var(--text); }
+.services-tab.active {
+  background: var(--accent);
+  color: #041018;
+  box-shadow: 0 4px 16px rgba(0,212,255,.3);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 1080px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: 34px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s var(--ease);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+.service-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--violet));
+  background: var(--grad-1);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .45s var(--ease);
+  transition: transform .5s var(--ease);
 }
-.card:hover {
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
   transform: translateY(-6px);
   border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-  box-shadow: var(--shadow-2), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+  box-shadow: var(--shadow-2);
 }
-.card:hover::before { transform: scaleX(1); }
-
-.card-icon {
+.service-icon {
   width: 58px; height: 58px;
-  display: grid; place-items: center;
-  background: var(--accent-glow);
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
   color: var(--accent);
   border-radius: 16px;
   font-size: 1.5rem;
   margin-bottom: 24px;
   border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
   transition: all .35s var(--ease);
-}
-.card:hover .card-icon {
-  background: var(--accent);
-  color: #041018;
-  transform: scale(1.08) rotate(-6deg);
-  box-shadow: 0 0 30px var(--accent-glow);
-}
-.card h3 { margin-bottom: 12px; }
-.card p { font-size: .97rem; margin-bottom: 20px; }
-
-.card-list { display: grid; gap: 8px; margin-bottom: 22px; }
-.card-list li {
-  font-size: .9rem;
-  color: var(--text-2);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.card-list li i {
-  color: var(--accent);
-  font-size: .8rem;
   flex-shrink: 0;
 }
+.service-card:hover .service-icon {
+  background: var(--accent);
+  color: #041018;
+  transform: scale(1.06) rotate(-6deg);
+}
+.service-card h3 { font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35; }
+.service-card p { font-size: .9rem; margin-bottom: 20px; flex: 1; }
 
-.card-link {
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.service-tag {
+  font-size: .7rem;
+  font-family: var(--mono);
+  color: var(--text-3);
+  padding: 4px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+.service-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: .88rem;
-  font-weight: 600;
+  font-size: .82rem;
+  font-weight: 700;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .1em;
 }
-.card-link i { transition: transform .3s var(--ease); }
-.card-link:hover i { transform: translateX(6px); }
+.service-link i { transition: transform .3s; }
+.service-link:hover i { transform: translateX(6px); }
 
-/* ======================================================================
-   PILLARS / CAPABILITY STRIP
-   ====================================================================== */
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 56px;
-}
-@media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
-
-.pillar {
-  background: linear-gradient(150deg, var(--bg-card), var(--bg-alt));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-l);
-  padding: 40px 34px;
-  position: relative;
+/* =========================================================================
+   17. TECH STACK MARQUEE
+   ========================================================================= */
+.tech-strip {
+  padding: 72px 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
   overflow: hidden;
-  transition: all .35s var(--ease);
 }
-.pillar::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; right: -60px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-  opacity: 0;
-  transition: opacity .45s;
-}
-.pillar:hover::after { opacity: 1; }
-.pillar:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-}
-.pillar-num {
+.tech-strip-label {
+  text-align: center;
+  font-size: .78rem;
   font-family: var(--mono);
-  font-size: .75rem;
-  color: var(--accent);
-  letter-spacing: .2em;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  margin-bottom: 36px;
   font-weight: 700;
-  margin-bottom: 20px;
-  display: block;
 }
-.pillar h3 { font-size: 1.35rem; margin-bottom: 14px; }
-.pillar p { font-size: .95rem; }
+.tech-marquee {
+  display: flex;
+  gap: 60px;
+  animation: scrollX 36s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  font-weight: 700;
+  color: var(--text-2);
+  font-size: .95rem;
+  flex-shrink: 0;
+  transition: all .3s;
+}
+.tech-item:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.tech-item i { font-size: 1.3rem; color: var(--accent); }
 
-/* ======================================================================
-   INDUSTRIES
-   ====================================================================== */
+/* =========================================================================
+   18. INDUSTRIES
+   ========================================================================= */
 .industries-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
-@media (max-width: 1000px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .industries-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1080px) { .industries-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 800px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .industries-grid { grid-template-columns: 1fr; } }
 
 .industry {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-m);
-  padding: 28px 22px;
+  padding: 30px 24px;
   text-align: center;
-  transition: all .3s var(--ease);
+  transition: all .35s var(--ease);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
+.industry::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity .4s;
+}
+.industry:hover::before { opacity: 1; }
+.industry > * { position: relative; z-index: 1; }
 .industry i {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: block;
-  transition: transform .35s var(--ease);
+  transition: transform .4s var(--ease);
 }
 .industry:hover {
   border-color: var(--accent);
-  background: var(--surface);
-  transform: translateY(-4px);
+  background: var(--bg-card-hi);
+  transform: translateY(-5px);
 }
-.industry:hover i { transform: scale(1.15) translateY(-3px); }
-.industry h4 { font-size: .95rem; margin-bottom: 4px; }
-.industry span { font-size: .78rem; color: var(--text-3); }
+.industry:hover i { transform: scale(1.18) translateY(-3px); }
+.industry h4 { font-size: .95rem; margin-bottom: 6px; font-weight: 700; }
+.industry span {
+  font-size: .76rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+}
 
-/* ======================================================================
-   CASE STUDIES
-   ====================================================================== */
+/* =========================================================================
+   19. CASE STUDIES
+   ========================================================================= */
 .case-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-@media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
 
 .case-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-l);
   overflow: hidden;
-  transition: all .35s var(--ease);
+  transition: all .4s var(--ease);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .case-card:hover {
-  transform: translateY(-6px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-  box-shadow: var(--shadow-2);
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-3);
 }
 .case-thumb {
   aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg, #0d1f33, #1a2f4a);
+  background: var(--grad-3);
   position: relative;
   overflow: hidden;
   display: grid;
   place-items: center;
   color: var(--accent);
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 .case-thumb::before {
   content: '';
@@ -747,31 +1520,37 @@ p { color: var(--text-2); font-size: 1.02rem; }
   background-image:
     linear-gradient(rgba(0,212,255,.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,212,255,.08) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-size: 30px 30px;
 }
-.case-thumb i { position: relative; z-index: 1; filter: drop-shadow(0 0 14px var(--accent)); }
-.case-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
-.case-tag {
-  display: inline-block;
-  font-size: .7rem;
+.case-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7,10,15,.7) 100%);
+}
+.case-thumb i { position: relative; z-index: 1; filter: drop-shadow(0 0 18px var(--accent)); }
+.case-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-size: .68rem;
   font-family: var(--mono);
   text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--accent);
-  background: var(--accent-glow);
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 16px;
+  letter-spacing: .14em;
+  color: #041018;
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
   font-weight: 700;
-  align-self: flex-start;
 }
-.case-body h3 { font-size: 1.2rem; margin-bottom: 10px; }
-.case-body p { font-size: .92rem; flex: 1; }
+.case-body { padding: 28px 26px 30px; flex: 1; display: flex; flex-direction: column; }
+.case-body h3 { font-size: 1.15rem; margin-bottom: 10px; line-height: 1.35; }
+.case-body p { font-size: .9rem; flex: 1; margin-bottom: 20px; }
 .case-metrics {
   display: flex;
   gap: 22px;
   padding-top: 20px;
-  margin-top: 20px;
   border-top: 1px solid var(--border);
 }
 .case-metric .v {
@@ -780,26 +1559,30 @@ p { color: var(--text-2); font-size: 1.02rem; }
   font-weight: 800;
   color: var(--green);
   letter-spacing: -.03em;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 .case-metric .k {
-  font-size: .72rem;
+  font-size: .7rem;
   color: var(--text-3);
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .1em;
+  font-weight: 700;
 }
 
-/* ======================================================================
-   PROCESS TIMELINE
-   ====================================================================== */
+/* =========================================================================
+   20. PROCESS
+   ========================================================================= */
 .process {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
-  margin-top: 56px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 60px;
   position: relative;
 }
-@media (max-width: 1000px) { .process { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .process { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .process { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .process { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .process { grid-template-columns: 1fr; } }
 
 .step {
   background: var(--bg-card);
@@ -807,14 +1590,15 @@ p { color: var(--text-2); font-size: 1.02rem; }
   border-radius: var(--radius-m);
   padding: 28px 22px;
   position: relative;
-  transition: all .3s var(--ease);
+  transition: all .35s var(--ease);
 }
 .step:hover {
   border-color: var(--accent);
-  background: var(--surface);
+  background: var(--bg-card-hi);
+  transform: translateY(-5px);
 }
 .step-num {
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border-radius: 12px;
   background: var(--accent);
   color: #041018;
@@ -822,48 +1606,377 @@ p { color: var(--text-2); font-size: 1.02rem; }
   place-items: center;
   font-family: var(--mono);
   font-weight: 800;
-  font-size: .95rem;
-  margin-bottom: 18px;
-  box-shadow: 0 6px 20px rgba(0,212,255,.35);
+  font-size: 1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 22px rgba(0,212,255,.35);
+  transition: all .35s var(--ease);
 }
-.step h4 { font-size: 1rem; margin-bottom: 8px; }
-.step p { font-size: .85rem; }
+.step:hover .step-num {
+  transform: scale(1.08) rotate(-6deg);
+}
+.step h4 { font-size: 1rem; margin-bottom: 10px; }
+.step p { font-size: .84rem; line-height: 1.55; }
 
-/* ======================================================================
-   INSIGHTS
-   ====================================================================== */
+/* =========================================================================
+   21. CERTIFICATIONS
+   ========================================================================= */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+@media (max-width: 900px) { .certs-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 520px) { .certs-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.cert {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 26px 18px;
+  text-align: center;
+  transition: all .3s var(--ease);
+}
+.cert:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-1);
+}
+.cert-icon {
+  width: 52px; height: 52px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 14px;
+  font-size: 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.cert h5 { font-size: .85rem; margin-bottom: 4px; font-weight: 700; }
+.cert span { font-size: .7rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+
+/* =========================================================================
+   22. TEAM
+   ========================================================================= */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .team-grid { grid-template-columns: 1fr; } }
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: 30px 24px;
+  text-align: center;
+  transition: all .35s var(--ease);
+}
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-2);
+}
+.team-avatar {
+  width: 100px; height: 100px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #041018;
+  background: var(--grad-1);
+  position: relative;
+  overflow: hidden;
+}
+.team-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: .35;
+}
+.team-avatar.t2 { background: linear-gradient(120deg, var(--violet), var(--pink)); color: #fff; }
+.team-avatar.t3 { background: linear-gradient(120deg, var(--green), var(--accent)); color: #041018; }
+.team-avatar.t4 { background: linear-gradient(120deg, var(--amber), var(--red)); color: #041018; }
+.team-card h4 { font-size: 1.05rem; margin-bottom: 4px; }
+.team-role {
+  font-size: .82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.team-bio { font-size: .85rem; color: var(--text-3); margin-bottom: 18px; }
+.team-socials {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.team-socials a {
+  width: 34px; height: 34px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-3);
+  font-size: .85rem;
+  transition: all .25s;
+}
+.team-socials a:hover {
+  background: var(--accent);
+  color: #041018;
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* =========================================================================
+   23. TESTIMONIALS
+   ========================================================================= */
+.testimonial-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 60px 60px 50px;
+  overflow: hidden;
+}
+@media (max-width: 640px) { .testimonial-wrap { padding: 40px 28px; } }
+.testimonial-wrap::before {
+  content: '\201C';
+  position: absolute;
+  top: 10px; left: 30px;
+  font-size: 8rem;
+  color: var(--accent-soft);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.testimonial-slide {
+  display: none;
+  text-align: center;
+  animation: fadeIn .6s var(--ease);
+}
+.testimonial-slide.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.testimonial-slide p {
+  font-size: 1.25rem;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.65;
+  margin-bottom: 30px;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 640px) { .testimonial-slide p { font-size: 1.05rem; } }
+.testimonial-author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.testimonial-avatar {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--grad-1);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #041018;
+  font-size: 1.1rem;
+  border: 2px solid var(--accent);
+}
+.testimonial-info { text-align: left; }
+.testimonial-info strong { display: block; font-size: 1rem; margin-bottom: 2px; }
+.testimonial-info span { font-size: .82rem; color: var(--text-3); }
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+.testimonial-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all .3s;
+  cursor: pointer;
+}
+.testimonial-dot.active {
+  background: var(--accent);
+  width: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--accent);
+}
+.testimonial-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.testimonial-arrow {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: var(--text-2);
+  transition: all .25s;
+}
+.testimonial-arrow:hover {
+  background: var(--accent);
+  color: #041018;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   24. INSIGHTS / BLOG
+   ========================================================================= */
 .insight-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-m);
-  padding: 30px 26px;
-  transition: all .3s var(--ease);
+  padding: 32px 28px;
+  transition: all .35s var(--ease);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--grad-1);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .4s var(--ease);
+}
+.insight-card:hover::before { transform: scaleY(1); }
 .insight-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--accent);
+  box-shadow: var(--shadow-2);
 }
-.insight-date {
-  font-family: var(--mono);
-  font-size: .74rem;
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: .76rem;
   color: var(--text-3);
-  letter-spacing: .1em;
+  font-family: var(--mono);
   text-transform: uppercase;
-  margin-bottom: 14px;
+  letter-spacing: .1em;
+  font-weight: 600;
 }
-.insight-card h4 { font-size: 1.05rem; margin-bottom: 10px; line-height: 1.35; }
-.insight-card p { font-size: .88rem; }
+.insight-meta .cat {
+  color: var(--accent);
+  padding: 3px 10px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-pill);
+}
+.insight-card h4 {
+  font-size: 1.08rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  transition: color .25s;
+}
+.insight-card:hover h4 { color: var(--accent); }
+.insight-card p { font-size: .88rem; flex: 1; margin-bottom: 20px; }
+.insight-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: .78rem;
+  color: var(--text-3);
+}
 
-/* ======================================================================
-   CTA BANNER
-   ====================================================================== */
+/* =========================================================================
+   25. FAQ
+   ========================================================================= */
+.faq-wrap { max-width: 820px; margin: 0 auto; }
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all .3s var(--ease);
+}
+.faq-item.open {
+  border-color: var(--accent);
+  background: var(--bg-card-hi);
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 26px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .25s;
+  text-align: left;
+  width: 100%;
+}
+.faq-question:hover { color: var(--accent); }
+.faq-icon {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 8px;
+  font-size: .85rem;
+  transition: all .3s var(--ease);
+}
+.faq-item.open .faq-icon {
+  background: var(--accent);
+  color: #041018;
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s var(--ease);
+}
+.faq-answer-inner {
+  padding: 0 26px 26px;
+  font-size: .94rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* =========================================================================
+   26. CTA BANNER
+   ========================================================================= */
 .cta-banner {
-  background: linear-gradient(120deg, #0a1a2c, #132a44 50%, #1a1f3a);
+  background: var(--grad-3);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: 72px 60px;
+  padding: 80px 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -871,64 +1984,87 @@ p { color: var(--text-2); font-size: 1.02rem; }
 .cta-banner::before {
   content: '';
   position: absolute;
-  top: -100px; left: 50%;
+  top: -120px; left: 50%;
   transform: translateX(-50%);
-  width: 500px; height: 500px;
+  width: 600px; height: 600px;
   background: radial-gradient(circle, var(--accent-glow), transparent 70%);
   pointer-events: none;
+  animation: floatOrb 20s ease-in-out infinite;
 }
 .cta-banner > * { position: relative; z-index: 1; }
-.cta-banner h2 { margin-bottom: 18px; }
-.cta-banner p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 36px; }
+.cta-banner h2 { margin-bottom: 20px; }
+.cta-banner p {
+  font-size: 1.12rem;
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) { .cta-banner { padding: 60px 28px; } }
 
-/* ======================================================================
-   CONTACT FORM
-   ====================================================================== */
+/* =========================================================================
+   27. CONTACT
+   ========================================================================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
   align-items: start;
 }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-.contact-info { display: grid; gap: 24px; }
+.contact-info { display: grid; gap: 18px; }
 .contact-item {
   display: flex;
   gap: 18px;
   align-items: flex-start;
-  padding: 22px;
+  padding: 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-m);
   transition: all .3s var(--ease);
 }
-.contact-item:hover { border-color: var(--accent); }
+.contact-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-1);
+}
 .contact-item i {
-  width: 44px; height: 44px;
+  width: 46px; height: 46px;
   flex-shrink: 0;
-  display: grid; place-items: center;
-  background: var(--accent-glow);
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
   color: var(--accent);
   border-radius: 12px;
   font-size: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
 }
-.contact-item h4 { font-size: .95rem; margin-bottom: 3px; }
-.contact-item p, .contact-item a { font-size: .9rem; color: var(--text-2); }
+.contact-item h4 { font-size: .95rem; margin-bottom: 4px; }
+.contact-item p, .contact-item a {
+  font-size: .88rem;
+  color: var(--text-2);
+  line-height: 1.55;
+}
 .contact-item a:hover { color: var(--accent); }
 
-.form {
+.contact-form {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-l);
-  padding: 40px;
+  padding: 42px;
 }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .contact-form { padding: 28px 22px; } }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
-.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
 .form-group label {
-  font-size: .82rem;
-  font-weight: 600;
+  font-size: .8rem;
+  font-weight: 700;
   color: var(--text-2);
   text-transform: uppercase;
   letter-spacing: .08em;
@@ -944,7 +2080,7 @@ p { color: var(--text-2); font-size: 1.02rem; }
   color: var(--text);
   font-family: inherit;
   font-size: .95rem;
-  transition: all .2s var(--ease);
+  transition: all .25s var(--ease);
 }
 .form-group input:focus,
 .form-group textarea:focus,
@@ -952,46 +2088,107 @@ p { color: var(--text-2); font-size: 1.02rem; }
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-glow);
+  background: var(--bg-elev);
 }
-.form-group textarea { resize: vertical; min-height: 130px; font-family: inherit; }
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-4);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+  font-family: inherit;
+}
+.form-checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  font-size: .85rem;
+  color: var(--text-2);
+}
+.form-checkbox input { width: auto; margin-top: 3px; accent-color: var(--accent); }
 .form-success {
   display: none;
-  padding: 14px 18px;
-  background: rgba(46,230,168,.12);
-  border: 1px solid rgba(46,230,168,.4);
+  padding: 16px 20px;
+  background: rgba(46,230,168,.1);
+  border: 1px solid rgba(46,230,168,.35);
   border-radius: 10px;
   color: var(--green);
   font-size: .9rem;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
 }
-.form-success.show { display: block; animation: slideDown .3s var(--ease); }
+.form-success.show {
+  display: flex;
+  animation: slideDown .35s var(--ease);
+}
 
-/* ======================================================================
-   FOOTER
-   ====================================================================== */
+/* =========================================================================
+   28. OFFICES
+   ========================================================================= */
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .offices-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .offices-grid { grid-template-columns: 1fr; } }
+
+.office-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 28px 24px;
+  transition: all .3s var(--ease);
+}
+.office-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-1);
+}
+.office-flag {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  display: block;
+}
+.office-card h4 { font-size: 1.05rem; margin-bottom: 6px; }
+.office-card .city { color: var(--accent); font-size: .82rem; font-weight: 600; margin-bottom: 14px; }
+.office-card p { font-size: .84rem; color: var(--text-3); line-height: 1.6; }
+
+/* =========================================================================
+   29. FOOTER
+   ========================================================================= */
 .footer {
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
-  padding: 80px 0 32px;
-  margin-top: 40px;
+  padding: 80px 0 0;
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 56px;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr 1.3fr;
+  gap: 44px;
+  margin-bottom: 60px;
 }
-@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
-@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1080px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 36px; } }
+@media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 460px) { .footer-grid { grid-template-columns: 1fr; } }
 
-.footer-brand p { font-size: .92rem; margin: 18px 0 24px; max-width: 340px; }
-.footer-socials { display: flex; gap: 10px; }
+.footer-brand p {
+  font-size: .92rem;
+  margin: 20px 0 24px;
+  max-width: 340px;
+  line-height: 1.65;
+}
+.footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
 .footer-socials a {
-  width: 40px; height: 40px;
-  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  display: grid;
+  place-items: center;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--text-2);
   transition: all .25s var(--ease);
 }
@@ -999,65 +2196,109 @@ p { color: var(--text-2); font-size: 1.02rem; }
   background: var(--accent);
   color: #041018;
   border-color: var(--accent);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,212,255,.3);
 }
 .footer-col h5 {
   font-size: .78rem;
   text-transform: uppercase;
   letter-spacing: .14em;
   color: var(--text-3);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   font-weight: 700;
 }
 .footer-col ul { display: grid; gap: 12px; }
 .footer-col a {
   color: var(--text-2);
-  font-size: .9rem;
+  font-size: .88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .25s var(--ease);
 }
-.footer-col a:hover { color: var(--accent); padding-left: 4px; }
+.footer-col a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+.footer-col a i { font-size: .7rem; color: var(--accent); }
+
+.footer-newsletter p {
+  font-size: .88rem;
+  margin-bottom: 18px;
+  color: var(--text-2);
+}
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.newsletter-form input {
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: .9rem;
+  transition: all .25s;
+}
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.newsletter-form button {
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #041018;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .88rem;
+  transition: all .25s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.newsletter-form button:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,212,255,.35);
+}
 
 .footer-bottom {
-  padding-top: 32px;
+  padding: 30px 0;
   border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  font-size: .85rem;
+  font-size: .84rem;
   color: var(--text-3);
+}
+.footer-bottom-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 .footer-bottom a { color: var(--text-3); }
 .footer-bottom a:hover { color: var(--accent); }
 
-/* ======================================================================
-   SCROLL REVEAL
-   ====================================================================== */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .8s var(--ease), transform .8s var(--ease);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal.d1 { transition-delay: .1s; }
-.reveal.d2 { transition-delay: .2s; }
-.reveal.d3 { transition-delay: .3s; }
-.reveal.d4 { transition-delay: .4s; }
-.reveal.d5 { transition-delay: .5s; }
-
-/* ======================================================================
-   BACK TO TOP
-   ====================================================================== */
+/* =========================================================================
+   30. FLOATING WIDGETS
+   ========================================================================= */
 .to-top {
   position: fixed;
-  bottom: 28px; right: 28px;
-  width: 48px; height: 48px;
+  bottom: 28px;
+  right: 28px;
+  width: 50px; height: 50px;
   background: var(--accent);
   color: #041018;
   border-radius: 50%;
-  display: grid; place-items: center;
-  font-size: 1rem;
-  box-shadow: 0 8px 24px rgba(0,212,255,.4);
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  box-shadow: 0 10px 30px rgba(0,212,255,.45);
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
@@ -1065,27 +2306,133 @@ p { color: var(--text-2); font-size: 1.02rem; }
   z-index: 900;
 }
 .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-.to-top:hover { background: #fff; transform: translateY(-4px); }
+.to-top:hover { background: #fff; transform: translateY(-5px); }
 
-/* ======================================================================
-   REDUCED MOTION
-   ====================================================================== */
+.chat-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 92px;
+  width: 52px; height: 52px;
+  background: var(--violet);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 30px var(--violet-glow);
+  cursor: pointer;
+  z-index: 900;
+  transition: all .3s var(--ease);
+  animation: chatPulse 3s ease-in-out infinite;
+}
+.chat-widget:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: #6a4be0;
+}
+@keyframes chatPulse {
+  0%, 100% { box-shadow: 0 10px 30px var(--violet-glow); }
+  50% { box-shadow: 0 10px 30px var(--violet-glow), 0 0 0 12px rgba(124,92,255,.15); }
+}
+@media (max-width: 640px) {
+  .chat-widget { right: 90px; bottom: 90px; }
+  .to-top { bottom: 26px; right: 26px; }
+}
+
+/* =========================================================================
+   31. SCROLL REVEAL
+   ========================================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .08s; }
+.reveal.d2 { transition-delay: .16s; }
+.reveal.d3 { transition-delay: .24s; }
+.reveal.d4 { transition-delay: .32s; }
+.reveal.d5 { transition-delay: .4s; }
+.reveal.d6 { transition-delay: .48s; }
+
+/* =========================================================================
+   32. REDUCED MOTION
+   ========================================================================= */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
+  .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
-<body>
+<body class="loading">
 
-<!-- ======================================================================
+<!-- =========================================================================
+     PRELOADER
+     ========================================================================= -->
+<div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-mark">
+      <i class="fa-solid fa-cube"></i>
+    </div>
+    <div class="preloader-bar"></div>
+    <p class="preloader-text">Loading Engineering Excellence</p>
+  </div>
+</div>
+
+<!-- =========================================================================
+     COOKIE BANNER
+     ========================================================================= -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>
+    We use cookies to enhance your browsing experience, analyze site traffic, and
+    personalize content. By clicking "Accept", you consent to our use of cookies.
+    <a href="#privacy">Learn more</a>.
+  </p>
+  <div class="cookie-banner-actions">
+    <button class="btn btn-ghost btn-sm" id="cookieDecline">Decline</button>
+    <button class="btn btn-primary btn-sm" id="cookieAccept">Accept</button>
+  </div>
+</div>
+
+<!-- =========================================================================
+     TOP BAR
+     ========================================================================= -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <a href="mailto:hello@3dmechdesign.com">
+        <i class="fa-solid fa-envelope"></i> hello@3dmechdesign.com
+      </a>
+      <a href="tel:+10000000000">
+        <i class="fa-solid fa-phone"></i> +1 (000) 000-0000
+      </a>
+      <a href="#careers">
+        <i class="fa-solid fa-briefcase"></i> We're hiring — 12 open roles
+      </a>
+    </div>
+    <div class="topbar-right">
+      <span>
+        <i class="fa-solid fa-location-dot"></i> Global engineering delivery
+      </span>
+      <div class="topbar-lang" role="group" aria-label="Language selection">
+        <button class="active" data-lang="en">EN</button>
+        <button data-lang="ur">UR</button>
+        <button data-lang="ar">AR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================================
      HEADER
-     ====================================================================== -->
+     ========================================================================= -->
 <header class="header" id="header">
   <div class="container nav">
-    <a href="#top" class="logo">
+    <a href="#top" class="logo" aria-label="3D Mech Design home">
       <span class="logo-mark"><i class="fa-solid fa-cube"></i></span>
       <span class="logo-text">
         <span>3D Mech Design</span>
@@ -1093,22 +2440,51 @@ p { color: var(--text-2); font-size: 1.02rem; }
       </span>
     </a>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#services" class="active">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#cases">Case Studies</a>
-      <a href="#process">Process</a>
-      <a href="#insights">Insights</a>
-      <a href="#careers">Careers</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services" class="active">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="mega-menu">
+          <div class="mega-col">
+            <h6>Engineering</h6>
+            <ul>
+              <li><a href="#services"><i class="fa-solid fa-drafting-compass"></i><div><strong>3D CAD & Modeling</strong><span>Parametric, surface & generative design</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-layer-group"></i><div><strong>Detailing & Drafting</strong><span>GD&T and production drawings</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-cubes"></i><div><strong>Digital Twin</strong><span>Live virtual asset replicas</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-print"></i><div><strong>Additive Manufacturing</strong><span>DfAM-optimized production</span></div></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <h6>Simulation</h6>
+            <ul>
+              <li><a href="#services"><i class="fa-solid fa-chart-line"></i><div><strong>Structural FEA</strong><span>Linear & nonlinear analysis</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-wind"></i><div><strong>CFD & Thermal</strong><span>Flow & heat transfer studies</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-wave-square"></i><div><strong>Vibration & Fatigue</strong><span>Modal & durability analysis</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-car-burst"></i><div><strong>Crash & Impact</strong><span>Drop, crash & blast simulation</span></div></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <h6>Manufacturing</h6>
+            <ul>
+              <li><a href="#services"><i class="fa-solid fa-robot"></i><div><strong>Automation & Robotics</strong><span>Cells, EOAT & integration</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-industry"></i><div><strong>CAM & Machining</strong><span>CNC toolpath generation</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-shield-halved"></i><div><strong>Compliance</strong><span>ASME, ISO, CE, FDA support</span></div></a></li>
+              <li><a href="#services"><i class="fa-solid fa-diagram-project"></i><div><strong>PLM Integration</strong><span>Teamcenter, Windchill, 3DEX</span></div></a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#careers">Careers</a></li>
+    </ul>
 
     <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fa-solid fa-sun"></i>
       </button>
       <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
@@ -1117,49 +2493,60 @@ p { color: var(--text-2); font-size: 1.02rem; }
 
 <main id="top">
 
-<!-- ======================================================================
+<!-- =========================================================================
      HERO
-     ====================================================================== -->
+     ========================================================================= -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
   <div class="container hero-inner">
+
     <div>
-      <span class="eyebrow reveal">Mechanical Engineering · Digital Twin · Industry 4.0</span>
+      <span class="hero-badge reveal">
+        <span class="dot"></span> Trusted by 30+ global engineering leaders
+      </span>
+
       <h1 class="reveal d1">
-        Precision engineering for the <span class="grad">next industrial era</span>
+        Precision engineering<br>
+        for the <span class="rotating">
+          <span>next industrial era</span>
+          <span>digital twin era</span>
+          <span>autonomous age</span>
+          <span>next industrial era</span>
+        </span>
       </h1>
+
       <p class="hero-sub reveal d2">
-        From concept sketches to certified digital twins — 3D Mech Design partners with aerospace, automotive, energy, and advanced manufacturing leaders to deliver faster, lighter, and smarter products.
+        From concept sketches to certified digital twins — 3D Mech Design partners with
+        aerospace, automotive, energy, and advanced manufacturing leaders to deliver
+        faster, lighter, and smarter products.
       </p>
+
       <div class="hero-cta reveal d3">
         <a href="#services" class="btn btn-primary btn-lg">
           Explore Services <i class="fa-solid fa-arrow-right"></i>
         </a>
         <a href="#cases" class="btn btn-ghost btn-lg">
-          <i class="fa-solid fa-play"></i> View Case Studies
+          <i class="fa-solid fa-circle-play"></i> View Case Studies
         </a>
       </div>
-      <div class="hero-stats reveal d4">
-        <div class="hero-stat">
-          <div class="num">18<span>+</span></div>
-          <div class="lbl">Years of Practice</div>
+
+      <div class="hero-trust reveal d4">
+        <div class="hero-trust-avatars">
+          <span>JD</span>
+          <span>MK</span>
+          <span>RS</span>
+          <span>AL</span>
+          <span>+26</span>
         </div>
-        <div class="hero-stat">
-          <div class="num">420<span>+</span></div>
-          <div class="lbl">Projects Delivered</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">99<span>%</span></div>
-          <div class="lbl">On-Time Delivery</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">30<span>+</span></div>
-          <div class="lbl">Global Clients</div>
-        </div>
+        <p style="font-size:.85rem; margin:0; color:var(--text-3);">
+          <strong style="color:var(--text);">4.9/5</strong> average client satisfaction across 420+ projects
+        </p>
       </div>
     </div>
 
     <div class="hero-visual reveal d2">
+      <div class="hero-orbit"></div>
+      <div class="hero-orbit orbit-2"></div>
       <div class="cube-scene">
         <div class="cube">
           <div class="cube-face f1">CAD</div>
@@ -1171,167 +2558,422 @@ p { color: var(--text-2); font-size: 1.02rem; }
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ======================================================================
-     TRUSTED BY MARQUEE
-     ====================================================================== -->
+<!-- =========================================================================
+     STATS BAR
+     ========================================================================= -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-count="18" data-suffix="+">0</div>
+        <div class="stat-label">Years of Practice</div>
+      </div>
+      <div class="stat-item reveal d1">
+        <div class="stat-num" data-count="420" data-suffix="+">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-item reveal d2">
+        <div class="stat-num" data-count="99" data-suffix="%">0</div>
+        <div class="stat-label">On-Time Delivery</div>
+      </div>
+      <div class="stat-item reveal d3">
+        <div class="stat-num" data-count="30" data-suffix="+">0</div>
+        <div class="stat-label">Global Clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     CLIENT MARQUEE
+     ========================================================================= -->
 <section class="marquee-wrap">
   <div class="container">
-    <p class="marquee-label">Trusted by engineering & manufacturing leaders</p>
+    <p class="marquee-label">Trusted by engineering &amp; manufacturing leaders worldwide</p>
   </div>
-  <div class="marquee">
-    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn</span>
+  <div class="marquee" aria-hidden="true">
+    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn Systems</span>
     <span class="marquee-item"><i class="fa-solid fa-car-side"></i> VelocityMotors</span>
-    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid</span>
-    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab</span>
-    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore</span>
-    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow</span>
-    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems</span>
-    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks</span>
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid Energy</span>
+    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab Industrial</span>
+    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore Automation</span>
+    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow Dynamics</span>
+    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems Space</span>
+    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks Global</span>
 
-    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn</span>
+    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn Systems</span>
     <span class="marquee-item"><i class="fa-solid fa-car-side"></i> VelocityMotors</span>
-    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid</span>
-    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab</span>
-    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore</span>
-    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow</span>
-    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems</span>
-    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks</span>
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid Energy</span>
+    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab Industrial</span>
+    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore Automation</span>
+    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow Dynamics</span>
+    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems Space</span>
+    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks Global</span>
   </div>
 </section>
 
-<!-- ======================================================================
-     SERVICES / PILLARS
-     ====================================================================== -->
+<!-- =========================================================================
+     ABOUT
+     ========================================================================= -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-visual reveal">
+        <div class="about-visual-inner">
+          <div class="about-visual-num">420+</div>
+          <div class="about-visual-label">Projects Engineered</div>
+        </div>
+        <div class="about-visual-badge">
+          <strong>99%</strong>
+          <span>On-time delivery</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="eyebrow reveal">About 3D Mech Design</span>
+        <h2 class="reveal d1">Engineering the products that move the world.</h2>
+        <p class="reveal d2">
+          Founded in 2007, 3D Mech Design has grown from a two-person CAD studio into
+          a global mechanical engineering partner serving some of the most demanding
+          industries on earth — aerospace, automotive, energy, medical devices, and
+          advanced manufacturing.
+        </p>
+        <p class="reveal d2">
+          We combine deep domain expertise with modern simulation, digital twin, and
+          Industry 4.0 capabilities. Every engagement is led by senior engineers,
+          documented to audit-ready standards, and delivered with measurable outcomes —
+          not just deliverables.
+        </p>
+
+        <div class="about-features reveal d3">
+          <div class="about-feature">
+            <i class="fa-solid fa-users-gear"></i>
+            <div>
+              <h5>Senior-led teams</h5>
+              <p>Every project has a principal engineer accountable for outcomes.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <h5>Audit-ready documentation</h5>
+              <p>DHF, FMEA, and full traceability built in from day one.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <i class="fa-solid fa-globe"></i>
+            <div>
+              <h5>Global delivery</h5>
+              <p>Follow-the-sun coverage across four regional studios.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <i class="fa-solid fa-gauge-high"></i>
+            <div>
+              <h5>Outcome-based metrics</h5>
+              <p>Mass, cost, time-to-market — measured and reported.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     PILLARS (CAPGEMINI-INSPIRED)
+     ========================================================================= -->
+<section class="section" id="pillars" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our Framework</span>
+      <h2>Three playing fields. Two foundations. One partner.</h2>
+      <p class="lead">
+        Like the world's leading consulting firms, we focus on a small number of
+        high-impact engineering domains — each underpinned by the data, cloud, and
+        simulation platforms that make modern industry possible.
+      </p>
+    </div>
+
+    <div class="pillars-wrap">
+      <div class="pillar reveal">
+        <span class="pillar-num">PLAYING FIELD 01</span>
+        <div class="pillar-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>Product Engineering</h3>
+        <p>
+          End-to-end mechanical design — from concept ideation and detailed CAD to
+          DFM, DFA, and production-ready drawings for global manufacturing.
+        </p>
+        <ul class="pillar-list">
+          <li><i class="fa-solid fa-check"></i> Concept &amp; industrial design</li>
+          <li><i class="fa-solid fa-check"></i> Detailed part &amp; assembly modeling</li>
+          <li><i class="fa-solid fa-check"></i> GD&amp;T and 2D drawing release</li>
+          <li><i class="fa-solid fa-check"></i> Design for manufacturing (DFM)</li>
+        </ul>
+        <a href="#services" class="pillar-link">Explore pillar <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="pillar reveal d1">
+        <span class="pillar-num">PLAYING FIELD 02</span>
+        <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Simulation &amp; Validation</h3>
+        <p>
+          Physics-based CAE — FEA, CFD, thermal, fatigue, and multi-body dynamics to
+          virtual-validate every design before a single chip is cut.
+        </p>
+        <ul class="pillar-list">
+          <li><i class="fa-solid fa-check"></i> Nonlinear structural FEA</li>
+          <li><i class="fa-solid fa-check"></i> CFD &amp; thermal management</li>
+          <li><i class="fa-solid fa-check"></i> Modal, vibration &amp; fatigue</li>
+          <li><i class="fa-solid fa-check"></i> Drop, crash &amp; impact testing</li>
+        </ul>
+        <a href="#services" class="pillar-link">Explore pillar <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="pillar reveal d2">
+        <span class="pillar-num">PLAYING FIELD 03</span>
+        <div class="pillar-icon"><i class="fa-solid fa-cubes"></i></div>
+        <h3>Digital Manufacturing</h3>
+        <p>
+          Digital twin, PLM, CAM, and Industry 4.0 integration — connecting design
+          intent directly with the factory floor.
+        </p>
+        <ul class="pillar-list">
+          <li><i class="fa-solid fa-check"></i> Digital twin &amp; IoT integration</li>
+          <li><i class="fa-solid fa-check"></i> Predictive maintenance models</li>
+          <li><i class="fa-solid fa-check"></i> CAM &amp; CNC toolpath generation</li>
+          <li><i class="fa-solid fa-check"></i> PLM &amp; MES integration</li>
+        </ul>
+        <a href="#services" class="pillar-link">Explore pillar <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top: 40px;">
+      <div class="card reveal" style="display:flex; gap:20px; align-items:flex-start;">
+        <div class="card-icon" style="margin:0; flex-shrink:0;"><i class="fa-solid fa-database"></i></div>
+        <div>
+          <h3 style="font-size:1.15rem; margin-bottom:8px;">Foundation 01 — Data</h3>
+          <p style="font-size:.92rem; margin:0;">
+            Sensor data, simulation results, and field telemetry unified into a single
+            source of engineering truth — powering every decision we make.
+          </p>
+        </div>
+      </div>
+      <div class="card reveal d1" style="display:flex; gap:20px; align-items:flex-start;">
+        <div class="card-icon" style="margin:0; flex-shrink:0;"><i class="fa-solid fa-cloud"></i></div>
+        <div>
+          <h3 style="font-size:1.15rem; margin-bottom:8px;">Foundation 02 — Cloud</h3>
+          <p style="font-size:.92rem; margin:0;">
+            Cloud-native HPC for simulation, collaborative PLM, and globally distributed
+            engineering teams working from a unified platform.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================================
+     SERVICES
+     ========================================================================= -->
 <section class="section" id="services">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">Our Services</span>
-      <h2>Three pillars. Two technology foundations. One partner.</h2>
-      <p>We focus on three engineering playing fields at the core of modern industrial business — each underpinned by data, simulation, and cloud-native platforms.</p>
+      <span class="eyebrow">Services</span>
+      <h2>Eight engineering disciplines. One accountable partner.</h2>
+      <p class="lead">
+        Whether you need a single simulation or an entire product development program,
+        our services are structured to plug into your team with minimal friction.
+      </p>
     </div>
 
-    <div class="pillars">
-      <div class="pillar reveal">
-        <span class="pillar-num">PILLAR 01</span>
-        <h3>Product Engineering</h3>
-        <p>End-to-end mechanical design — from concept ideation and detailed CAD to DFM, DFA, and production-ready drawings.</p>
-      </div>
-      <div class="pillar reveal d1">
-        <span class="pillar-num">PILLAR 02</span>
-        <h3>Simulation & Validation</h3>
-        <p>Physics-based CAE — FEA, CFD, thermal, fatigue, and multi-body dynamics to virtual-validate before you cut metal.</p>
-      </div>
-      <div class="pillar reveal d2">
-        <span class="pillar-num">PILLAR 03</span>
-        <h3>Digital Manufacturing</h3>
-        <p>Digital twin, PLM, CAM, and Industry 4.0 integration to connect design intent with the factory floor.</p>
-      </div>
+    <div class="services-tabs" role="tablist">
+      <button class="services-tab active" data-tab="all"><i class="fa-solid fa-th"></i> All Services</button>
+      <button class="services-tab" data-tab="design"><i class="fa-solid fa-drafting-compass"></i> Design</button>
+      <button class="services-tab" data-tab="simulate"><i class="fa-solid fa-chart-line"></i> Simulation</button>
+      <button class="services-tab" data-tab="manufacture"><i class="fa-solid fa-industry"></i> Manufacturing</button>
     </div>
 
-    <div class="grid grid-3" style="margin-top: 56px;">
-      <div class="card reveal">
-        <div class="card-icon"><i class="fa-solid fa-drafting-compass"></i></div>
-        <h3>3D CAD & Modeling</h3>
-        <p>Parametric, surface, and generative design across SolidWorks, CATIA, NX, Creo, and Inventor.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> Concept & industrial design</li>
-          <li><i class="fa-solid fa-check"></i> Detailed part & assembly modeling</li>
-          <li><i class="fa-solid fa-check"></i> GD&T and 2D drawing release</li>
-        </ul>
-        <a href="#contact" class="card-link">Discuss a project <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="services-grid" id="servicesGrid">
+
+      <div class="service-card reveal" data-cat="design">
+        <div class="service-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+        <h3>3D CAD &amp; Modeling</h3>
+        <p>Parametric, surface, and generative design across every major CAD platform — from concept to production release.</p>
+        <div class="service-tags">
+          <span class="service-tag">SolidWorks</span>
+          <span class="service-tag">CATIA</span>
+          <span class="service-tag">NX</span>
+          <span class="service-tag">Creo</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="card reveal d1">
-        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="service-card reveal d1" data-cat="simulate">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
         <h3>CAE Simulation</h3>
-        <p>Nonlinear FEA, CFD, thermal, vibration, and fatigue analysis with Ansys, Abaqus, and STAR-CCM+.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> Structural & modal FEA</li>
-          <li><i class="fa-solid fa-check"></i> CFD & thermal management</li>
-          <li><i class="fa-solid fa-check"></i> Drop, crash & impact testing</li>
-        </ul>
-        <a href="#contact" class="card-link">Run a simulation <i class="fa-solid fa-arrow-right"></i></a>
+        <p>Nonlinear FEA, CFD, thermal, vibration, and fatigue analysis using industry-standard solvers.</p>
+        <div class="service-tags">
+          <span class="service-tag">Ansys</span>
+          <span class="service-tag">Abaqus</span>
+          <span class="service-tag">STAR-CCM+</span>
+          <span class="service-tag">Nastran</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="card reveal d2">
-        <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+      <div class="service-card reveal d2" data-cat="design">
+        <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
         <h3>Digital Twin</h3>
         <p>Connected virtual replicas of physical assets — real-time monitoring, predictive maintenance, and optimization.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> IoT & sensor integration</li>
-          <li><i class="fa-solid fa-check"></i> Predictive maintenance models</li>
-          <li><i class="fa-solid fa-check"></i> Real-time 3D visualization</li>
-        </ul>
-        <a href="#contact" class="card-link">Build a twin <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="service-tags">
+          <span class="service-tag">IoT</span>
+          <span class="service-tag">Edge</span>
+          <span class="service-tag">ML</span>
+          <span class="service-tag">Unity</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="card reveal">
-        <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
-        <h3>Automation & Robotics</h3>
+      <div class="service-card reveal d3" data-cat="manufacture">
+        <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Automation &amp; Robotics</h3>
         <p>Custom robotic cells, end-of-arm tooling, and factory automation designed for throughput and safety.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> Robotic cell design</li>
-          <li><i class="fa-solid fa-check"></i> End-of-arm tooling (EOAT)</li>
-          <li><i class="fa-solid fa-check"></i> PLC & motion integration</li>
-        </ul>
-        <a href="#contact" class="card-link">Automate a line <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="service-tags">
+          <span class="service-tag">FANUC</span>
+          <span class="service-tag">KUKA</span>
+          <span class="service-tag">ABB</span>
+          <span class="service-tag">PLC</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="card reveal d1">
-        <div class="card-icon"><i class="fa-solid fa-print"></i></div>
+      <div class="service-card reveal" data-cat="manufacture">
+        <div class="service-icon"><i class="fa-solid fa-print"></i></div>
         <h3>Additive Manufacturing</h3>
-        <p>DfAM-optimized parts for metal and polymer AM — lattice structures, topology optimization, and rapid prototyping.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> Topology optimization</li>
-          <li><i class="fa-solid fa-check"></i> Metal & polymer DfAM</li>
-          <li><i class="fa-solid fa-check"></i> Rapid prototyping & tooling</li>
-        </ul>
-        <a href="#contact" class="card-link">Prototype now <i class="fa-solid fa-arrow-right"></i></a>
+        <p>DfAM-optimized parts for metal and polymer AM — lattice structures, topology optimization, rapid prototyping.</p>
+        <div class="service-tags">
+          <span class="service-tag">DMLS</span>
+          <span class="service-tag">SLM</span>
+          <span class="service-tag">FDM</span>
+          <span class="service-tag">SLA</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="card reveal d2">
-        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h3>Compliance & Certification</h3>
-        <p>Regulatory alignment for ASME, ISO, CE, and industry-specific standards — documentation included.</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> ASME / ISO / CE support</li>
-          <li><i class="fa-solid fa-check"></i> Design history files (DHF)</li>
-          <li><i class="fa-solid fa-check"></i> FMEA & risk analysis</li>
-        </ul>
-        <a href="#contact" class="card-link">Get certified <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="service-card reveal d1" data-cat="manufacture">
+        <div class="service-icon"><i class="fa-solid fa-industry"></i></div>
+        <h3>CAM &amp; CNC Programming</h3>
+        <p>Multi-axis toolpath generation, post-processor development, and machining process optimization.</p>
+        <div class="service-tags">
+          <span class="service-tag">Mastercam</span>
+          <span class="service-tag">NX CAM</span>
+          <span class="service-tag">PowerMill</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+
+      <div class="service-card reveal d2" data-cat="simulate">
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Compliance &amp; Certification</h3>
+        <p>Regulatory alignment for ASME, ISO, CE, FDA, and industry-specific standards — documentation included.</p>
+        <div class="service-tags">
+          <span class="service-tag">ASME</span>
+          <span class="service-tag">ISO 13485</span>
+          <span class="service-tag">CE</span>
+          <span class="service-tag">FDA</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal d3" data-cat="design">
+        <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h3>PLM Integration</h3>
+        <p>Implementation and support for Teamcenter, Windchill, 3DEXPERIENCE, and Aras — from data migration to go-live.</p>
+        <div class="service-tags">
+          <span class="service-tag">Teamcenter</span>
+          <span class="service-tag">Windchill</span>
+          <span class="service-tag">3DEX</span>
+          <span class="service-tag">Aras</span>
+        </div>
+        <a href="#contact" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
+     TECH STACK
+     ========================================================================= -->
+<section class="tech-strip">
+  <div class="container">
+    <p class="tech-strip-label">Tools &amp; platforms we master</p>
+  </div>
+  <div class="tech-marquee" aria-hidden="true">
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> SolidWorks</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> CATIA V6</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> Siemens NX</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> PTC Creo</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> Inventor</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Ansys</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Abaqus</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> STAR-CCM+</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Fluent</span>
+    <span class="tech-item"><i class="fa-solid fa-industry"></i> Mastercam</span>
+    <span class="tech-item"><i class="fa-solid fa-diagram-project"></i> Teamcenter</span>
+    <span class="tech-item"><i class="fa-solid fa-diagram-project"></i> Windchill</span>
+
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> SolidWorks</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> CATIA V6</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> Siemens NX</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> PTC Creo</span>
+    <span class="tech-item"><i class="fa-solid fa-cube"></i> Inventor</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Ansys</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Abaqus</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> STAR-CCM+</span>
+    <span class="tech-item"><i class="fa-solid fa-chart-line"></i> Fluent</span>
+    <span class="tech-item"><i class="fa-solid fa-industry"></i> Mastercam</span>
+    <span class="tech-item"><i class="fa-solid fa-diagram-project"></i> Teamcenter</span>
+    <span class="tech-item"><i class="fa-solid fa-diagram-project"></i> Windchill</span>
+  </div>
+</section>
+
+<!-- =========================================================================
      INDUSTRIES
-     ====================================================================== -->
-<section class="section" id="industries" style="background: var(--bg-alt);">
+     ========================================================================= -->
+<section class="section" id="industries">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">Industries We Serve</span>
       <h2>Deep domain expertise across mission-critical sectors</h2>
-      <p>We speak the language of regulated, high-stakes engineering — where failure is not an option.</p>
+      <p class="lead">
+        We speak the language of regulated, high-stakes engineering — where failure
+        is not an option and documentation matters as much as design.
+      </p>
     </div>
 
     <div class="industries-grid">
       <div class="industry reveal">
         <i class="fa-solid fa-jet-fighter"></i>
-        <h4>Aerospace & Defense</h4>
+        <h4>Aerospace &amp; Defense</h4>
         <span>Structures · Avionics · MRO</span>
       </div>
       <div class="industry reveal d1">
         <i class="fa-solid fa-car-side"></i>
-        <h4>Automotive & EV</h4>
+        <h4>Automotive &amp; EV</h4>
         <span>Body · Powertrain · Battery</span>
       </div>
       <div class="industry reveal d2">
         <i class="fa-solid fa-bolt"></i>
-        <h4>Energy & Power</h4>
+        <h4>Energy &amp; Power</h4>
         <span>Turbines · Grid · Nuclear</span>
       </div>
       <div class="industry reveal d3">
@@ -1346,86 +2988,171 @@ p { color: var(--text-2); font-size: 1.02rem; }
       </div>
       <div class="industry reveal d1">
         <i class="fa-solid fa-satellite"></i>
-        <h4>Space & Satellites</h4>
+        <h4>Space &amp; Satellites</h4>
         <span>Payloads · Ground Systems</span>
       </div>
       <div class="industry reveal d2">
         <i class="fa-solid fa-oil-well"></i>
-        <h4>Oil & Gas</h4>
-        <span>Downhole · Subsea</span>
+        <h4>Oil &amp; Gas</h4>
+        <span>Downhole · Subsea · Refining</span>
       </div>
       <div class="industry reveal d3">
         <i class="fa-solid fa-train"></i>
-        <h4>Rail & Transit</h4>
+        <h4>Rail &amp; Transit</h4>
         <span>Rolling Stock · Signaling</span>
+      </div>
+      <div class="industry reveal">
+        <i class="fa-solid fa-ship"></i>
+        <h4>Marine &amp; Offshore</h4>
+        <span>Vessels · Ports · Offshore</span>
+      </div>
+      <div class="industry reveal d1">
+        <i class="fa-solid fa-microchip"></i>
+        <h4>Semiconductor</h4>
+        <span>Fab Equipment · Cleanroom</span>
+      </div>
+      <div class="industry reveal d2">
+        <i class="fa-solid fa-flask"></i>
+        <h4>Chemical &amp; Process</h4>
+        <span>Reactors · Piping · Skids</span>
+      </div>
+      <div class="industry reveal d3">
+        <i class="fa-solid fa-tractor"></i>
+        <h4>Agriculture</h4>
+        <span>Machinery · Implements</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
      CASE STUDIES
-     ====================================================================== -->
-<section class="section" id="cases">
+     ========================================================================= -->
+<section class="section" id="cases" style="background: var(--bg-alt);">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Case Studies</span>
       <h2>Outcomes that move the P&amp;L</h2>
-      <p>A selection of recent engagements where our engineering directly improved performance, weight, cost, and time-to-market.</p>
+      <p class="lead">
+        A selection of recent engagements where our engineering directly improved
+        performance, weight, cost, and time-to-market for our clients.
+      </p>
     </div>
 
     <div class="case-grid">
+
       <article class="case-card reveal">
-        <div class="case-thumb"><i class="fa-solid fa-jet-fighter"></i></div>
+        <div class="case-thumb">
+          <span class="case-badge">Aerospace</span>
+          <i class="fa-solid fa-jet-fighter"></i>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Aerospace</span>
           <h3>Structural weight reduction on a business jet wing</h3>
-          <p>Topology-optimized rib layout and composite ply redesign for a regional aircraft wing box.</p>
+          <p>Topology-optimized rib layout and composite ply redesign for a regional aircraft wing box, validated by nonlinear FEA and physical test correlation.</p>
           <div class="case-metrics">
-            <div class="case-metric"><div class="v">-18%</div><div class="k">Mass</div></div>
+            <div class="case-metric"><div class="v">−18%</div><div class="k">Mass</div></div>
             <div class="case-metric"><div class="v">+12%</div><div class="k">Stiffness</div></div>
           </div>
         </div>
       </article>
 
       <article class="case-card reveal d1">
-        <div class="case-thumb"><i class="fa-solid fa-car-battery"></i></div>
+        <div class="case-thumb">
+          <span class="case-badge">Automotive / EV</span>
+          <i class="fa-solid fa-car-battery"></i>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Automotive / EV</span>
           <h3>Battery pack thermal management for a next-gen EV</h3>
-          <p>CFD-driven cold plate design and pack-level thermal simulation for fast-charge durability.</p>
+          <p>CFD-driven cold plate design and pack-level thermal simulation for fast-charge durability across a −30°C to +55°C operating envelope.</p>
           <div class="case-metrics">
-            <div class="case-metric"><div class="v">-22°C</div><div class="k">Peak cell</div></div>
+            <div class="case-metric"><div class="v">−22°C</div><div class="k">Peak cell</div></div>
             <div class="case-metric"><div class="v">+30%</div><div class="k">Cycle life</div></div>
           </div>
         </div>
       </article>
 
       <article class="case-card reveal d2">
-        <div class="case-thumb"><i class="fa-solid fa-wind"></i></div>
+        <div class="case-thumb">
+          <span class="case-badge">Energy</span>
+          <i class="fa-solid fa-wind"></i>
+        </div>
         <div class="case-body">
-          <span class="case-tag">Energy</span>
           <h3>Digital twin for a 250 MW wind farm</h3>
-          <p>SCADA-integrated virtual replica with predictive maintenance and yaw optimization models.</p>
+          <p>SCADA-integrated virtual replica with predictive maintenance and yaw optimization models, deployed across 62 turbines in three countries.</p>
           <div class="case-metrics">
             <div class="case-metric"><div class="v">+7.4%</div><div class="k">AEP</div></div>
-            <div class="case-metric"><div class="v">-35%</div><div class="k">Downtime</div></div>
+            <div class="case-metric"><div class="v">−35%</div><div class="k">Downtime</div></div>
           </div>
         </div>
       </article>
+
+      <article class="case-card reveal">
+        <div class="case-thumb">
+          <span class="case-badge">Medical</span>
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <div class="case-body">
+          <h3>Next-gen surgical instrument for a global medtech OEM</h3>
+          <p>Full DHF documentation, ISO 13485-compliant design controls, and sterilization-validated mechanisms for a laparoscopic stapler platform.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">−40%</div><div class="k">Part count</div></div>
+            <div class="case-metric"><div class="v">+2×</div><div class="k">Reliability</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card reveal d1">
+        <div class="case-thumb">
+          <span class="case-badge">Industrial</span>
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="case-body">
+          <h3>Robotic welding cell for a heavy equipment OEM</h3>
+          <p>Turnkey cell design with dual-robot coordination, custom EOAT, and vision-guided part location — commissioned in 14 weeks.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">3.2×</div><div class="k">Throughput</div></div>
+            <div class="case-metric"><div class="v">−28%</div><div class="k">Unit cost</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card reveal d2">
+        <div class="case-thumb">
+          <span class="case-badge">Space</span>
+          <i class="fa-solid fa-satellite"></i>
+        </div>
+        <div class="case-body">
+          <h3>Deployable solar array mechanism for a smallsat bus</h3>
+          <p>Design, FEA, and qualification testing of a 3-panel deployable array with launch-lock and one-shot release mechanism.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">100%</div><div class="k">Test pass</div></div>
+            <div class="case-metric"><div class="v">−15%</div><div class="k">Mass</div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-ghost btn-lg">
+        Request full case study pack <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
      PROCESS
-     ====================================================================== -->
-<section class="section" id="process" style="background: var(--bg-alt);">
+     ========================================================================= -->
+<section class="section" id="process">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">How We Work</span>
       <h2>A disciplined, transparent engineering process</h2>
-      <p>Every engagement follows a proven five-stage methodology — with clear deliverables, gates, and metrics at each step.</p>
+      <p class="lead">
+        Every engagement follows a proven six-stage methodology — with clear
+        deliverables, gates, and metrics at each step.
+      </p>
     </div>
 
     <div class="process">
@@ -1436,146 +3163,605 @@ p { color: var(--text-2); font-size: 1.02rem; }
       </div>
       <div class="step reveal d1">
         <div class="step-num">02</div>
-        <h4>Design</h4>
-        <p>Concept modeling, trade studies, and detailed CAD development.</p>
+        <h4>Concept</h4>
+        <p>Trade studies, concept modeling, and early validation.</p>
       </div>
       <div class="step reveal d2">
         <div class="step-num">03</div>
-        <h4>Simulate</h4>
-        <p>FEA, CFD, thermal, and durability analysis to validate the design.</p>
+        <h4>Design</h4>
+        <p>Detailed CAD, GD&amp;T, DFM/DFA, and drawing release.</p>
       </div>
       <div class="step reveal d3">
         <div class="step-num">04</div>
-        <h4>Validate</h4>
-        <p>Prototype, physical test, correlation, and design freeze.</p>
+        <h4>Simulate</h4>
+        <p>FEA, CFD, thermal, and durability analysis to validate.</p>
       </div>
       <div class="step reveal d4">
         <div class="step-num">05</div>
+        <h4>Validate</h4>
+        <p>Prototype, physical test, correlation, and design freeze.</p>
+      </div>
+      <div class="step reveal d5">
+        <div class="step-num">06</div>
         <h4>Deliver</h4>
-        <p>Production drawings, PLM handover, and manufacturing support.</p>
+        <p>Production release, PLM handover, and manufacturing support.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-primary btn-lg">
+        Download our methodology PDF <i class="fa-solid fa-download"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     CERTIFICATIONS
+     ========================================================================= -->
+<section class="section-sm" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom: 40px;">
+      <span class="eyebrow">Standards &amp; Compliance</span>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">We engineer to the standards that matter</h2>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert reveal">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>ISO 9001</h5>
+        <span>Quality Management</span>
+      </div>
+      <div class="cert reveal d1">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>ISO 13485</h5>
+        <span>Medical Devices</span>
+      </div>
+      <div class="cert reveal d2">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>ASME</h5>
+        <span>Pressure Vessels</span>
+      </div>
+      <div class="cert reveal d3">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>CE Marking</h5>
+        <span>European Compliance</span>
+      </div>
+      <div class="cert reveal d4">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>AS9100</h5>
+        <span>Aerospace Quality</span>
+      </div>
+      <div class="cert reveal d5">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h5>IATF 16949</h5>
+        <span>Automotive Quality</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
+     TEAM
+     ========================================================================= -->
+<section class="section" id="team">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Leadership</span>
+      <h2>The engineers behind 3D Mech Design</h2>
+      <p class="lead">
+        Our leadership team brings decades of hands-on experience across aerospace,
+        automotive, energy, and medical device engineering.
+      </p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">AK</div>
+        <h4>Ahmed Khan</h4>
+        <div class="team-role">Founder &amp; CEO</div>
+        <p class="team-bio">Former principal engineer at a tier-1 aerospace OEM. 22 years of mechanical design leadership.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card reveal d1">
+        <div class="team-avatar t2">SM</div>
+        <h4>Sarah Mitchell</h4>
+        <div class="team-role">Head of Simulation</div>
+        <p class="team-bio">PhD in computational mechanics. Leads our CAE practice and HPC infrastructure.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card reveal d2">
+        <div class="team-avatar t3">RP</div>
+        <h4>Rajesh Patel</h4>
+        <div class="team-role">Director of Manufacturing</div>
+        <p class="team-bio">Automation and Industry 4.0 specialist. Commissioned 40+ robotic cells worldwide.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="team-card reveal d3">
+        <div class="team-avatar t4">LC</div>
+        <h4>Lisa Chen</h4>
+        <div class="team-role">Head of Digital Twin</div>
+        <p class="team-bio">IoT and ML architect. Built digital twin platforms for energy and industrial clients.</p>
+        <div class="team-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     TESTIMONIALS
+     ========================================================================= -->
+<section class="section" id="testimonials" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What our clients say</h2>
+    </div>
+
+    <div class="testimonial-wrap">
+      <div class="testimonial-slide active">
+        <p>
+          "3D Mech Design delivered a wing box redesign that cut 18% of mass while
+          improving stiffness. Their simulation rigor and documentation quality were
+          the best we've seen from an external partner."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div class="testimonial-info">
+            <strong>James Morrison</strong>
+            <span>Chief Engineer, AeroDyn Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p>
+          "The battery pack thermal work was outstanding. They took a loosely defined
+          problem, ran the CFD studies, and delivered a cold plate design that exceeded
+          our cycle-life targets. Truly a partner, not a vendor."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(120deg, var(--violet), var(--pink)); color:#fff;">PV</div>
+          <div class="testimonial-info">
+            <strong>Priya Venkatesan</strong>
+            <span>Director of Engineering, VelocityMotors</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p>
+          "Their digital twin platform is now the backbone of our wind farm operations.
+          We've seen 7.4% AEP improvement and cut unplanned downtime by a third.
+          The ROI was clear within the first quarter."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(120deg, var(--green), var(--accent)); color:#041018;">HN</div>
+          <div class="testimonial-info">
+            <strong>Henrik Nielsen</strong>
+            <span>VP Operations, NovaGrid Energy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-slide">
+        <p>
+          "From a 40-part laparoscopic stapler to a 24-part platform with better
+          reliability — 3D Mech Design delivered on time, on budget, and with full
+          ISO 13485 documentation. Exceptional."
+        </p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(120deg, var(--amber), var(--red)); color:#041018;">MO</div>
+          <div class="testimonial-info">
+            <strong>Dr. Maria Ortega</strong>
+            <span>Head of R&amp;D, MedTech Global</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-dots" id="testimonialDots">
+        <span class="testimonial-dot active" data-slide="0"></span>
+        <span class="testimonial-dot" data-slide="1"></span>
+        <span class="testimonial-dot" data-slide="2"></span>
+        <span class="testimonial-dot" data-slide="3"></span>
+      </div>
+
+      <div class="testimonial-arrows">
+        <button class="testimonial-arrow" id="prevSlide" aria-label="Previous testimonial">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="testimonial-arrow" id="nextSlide" aria-label="Next testimonial">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
      INSIGHTS
-     ====================================================================== -->
+     ========================================================================= -->
 <section class="section" id="insights">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Insights</span>
       <h2>Thought leadership from our engineering bench</h2>
-      <p>Deep dives, technical notes, and industry perspectives from the 3D Mech Design team.</p>
+      <p class="lead">
+        Deep dives, technical notes, and industry perspectives from the 3D Mech Design team.
+      </p>
     </div>
 
     <div class="grid grid-3">
       <article class="insight-card reveal">
-        <div class="insight-date">Mar 12, 2025 · CAE</div>
+        <div class="insight-meta">
+          <span class="cat">CAE</span>
+          <span>Mar 12, 2025</span>
+        </div>
         <h4>Nonlinear FEA: when linear analysis stops being enough</h4>
-        <p>Understanding material nonlinearity, large deformation, and contact — and when to justify the compute cost.</p>
-        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+        <p>
+          Understanding material nonlinearity, large deformation, and contact —
+          and when to justify the compute cost for high-fidelity nonlinear models.
+        </p>
+        <div class="insight-footer">
+          <span>8 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </article>
+
       <article class="insight-card reveal d1">
-        <div class="insight-date">Feb 28, 2025 · Digital Twin</div>
+        <div class="insight-meta">
+          <span class="cat">Digital Twin</span>
+          <span>Feb 28, 2025</span>
+        </div>
         <h4>From CAD to digital twin: a practical roadmap</h4>
-        <p>How to move from static 3D models to live, sensor-driven virtual assets without a multi-year program.</p>
-        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+        <p>
+          How to move from static 3D models to live, sensor-driven virtual assets
+          without a multi-year, multi-million-dollar program.
+        </p>
+        <div class="insight-footer">
+          <span>12 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </article>
+
       <article class="insight-card reveal d2">
-        <div class="insight-date">Feb 14, 2025 · Manufacturing</div>
+        <div class="insight-meta">
+          <span class="cat">Manufacturing</span>
+          <span>Feb 14, 2025</span>
+        </div>
         <h4>DfAM rules every mechanical engineer should know</h4>
-        <p>Ten design-for-additive-manufacturing principles that separate a printable part from a production part.</p>
-        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+        <p>
+          Ten design-for-additive-manufacturing principles that separate a printable
+          part from a production-ready, cost-effective component.
+        </p>
+        <div class="insight-footer">
+          <span>10 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="insight-card reveal">
+        <div class="insight-meta">
+          <span class="cat">Aerospace</span>
+          <span>Jan 30, 2025</span>
+        </div>
+        <h4>Composite ply optimization for aircraft primary structures</h4>
+        <p>
+          A practical guide to using optimization tools for composite layup design
+          while maintaining certification margins.
+        </p>
+        <div class="insight-footer">
+          <span>14 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="insight-card reveal d1">
+        <div class="insight-meta">
+          <span class="cat">EV</span>
+          <span>Jan 18, 2025</span>
+        </div>
+        <h4>Structural battery pack design: cell-to-body trends</h4>
+        <p>
+          How cell-to-body and cell-to-chassis architectures are reshaping EV
+          structural design and simulation workflows.
+        </p>
+        <div class="insight-footer">
+          <span>11 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="insight-card reveal d2">
+        <div class="insight-meta">
+          <span class="cat">Industry 4.0</span>
+          <span>Jan 05, 2025</span>
+        </div>
+        <h4>The economics of predictive maintenance at scale</h4>
+        <p>
+          Real-world ROI numbers from deploying predictive maintenance across
+          three industries — and the conditions that make it work.
+        </p>
+        <div class="insight-footer">
+          <span>9 min read</span>
+          <a href="#" class="service-link" style="font-size:.75rem;">Read <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
      CAREERS
-     ====================================================================== -->
+     ========================================================================= -->
 <section class="section" id="careers" style="background: var(--bg-alt);">
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">Careers</span>
       <h2>Build things that matter</h2>
-      <p>We hire engineers who are curious, rigorous, and want to see their designs fly, drive, and power the world.</p>
+      <p class="lead">
+        We hire engineers who are curious, rigorous, and want to see their designs
+        fly, drive, and power the world. Remote-friendly, senior-led, outcome-driven.
+      </p>
     </div>
 
     <div class="grid grid-3">
       <div class="card reveal">
         <div class="card-icon"><i class="fa-solid fa-drafting-compass"></i></div>
         <h3>Senior CAD Engineer</h3>
-        <p>Full-time · Remote / Hybrid · 5+ years</p>
-        <ul class="card-list">
+        <p style="font-size:.85rem; color:var(--accent); font-weight:600; margin-bottom:16px;">
+          Full-time · Remote / Hybrid · 5+ years
+        </p>
+        <ul class="pillar-list" style="margin-bottom:22px;">
           <li><i class="fa-solid fa-check"></i> Expert in SolidWorks / NX / CATIA</li>
-          <li><i class="fa-solid fa-check"></i> GD&T and tolerance stack-up</li>
+          <li><i class="fa-solid fa-check"></i> GD&amp;T and tolerance stack-up</li>
           <li><i class="fa-solid fa-check"></i> Aerospace or automotive background</li>
+          <li><i class="fa-solid fa-check"></i> PLM (Teamcenter / Windchill) experience</li>
         </ul>
-        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="service-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+
       <div class="card reveal d1">
         <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
         <h3>CAE Simulation Analyst</h3>
-        <p>Full-time · Remote / Hybrid · 4+ years</p>
-        <ul class="card-list">
+        <p style="font-size:.85rem; color:var(--accent); font-weight:600; margin-bottom:16px;">
+          Full-time · Remote / Hybrid · 4+ years
+        </p>
+        <ul class="pillar-list" style="margin-bottom:22px;">
           <li><i class="fa-solid fa-check"></i> Ansys / Abaqus / STAR-CCM+</li>
-          <li><i class="fa-solid fa-check"></i> Nonlinear and dynamic analysis</li>
-          <li><i class="fa-solid fa-check"></i> Strong reporting & storytelling</li>
+          <li><i class="fa-solid fa-check"></i> Nonlinear &amp; dynamic analysis</li>
+          <li><i class="fa-solid fa-check"></i> Strong reporting &amp; storytelling</li>
+          <li><i class="fa-solid fa-check"></i> Python / automation scripting a plus</li>
         </ul>
-        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="service-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+
       <div class="card reveal d2">
         <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
         <h3>Automation Engineer</h3>
-        <p>Full-time · On-site · 3+ years</p>
-        <ul class="card-list">
-          <li><i class="fa-solid fa-check"></i> Robotic cell & EOAT design</li>
-          <li><i class="fa-solid fa-check"></i> PLC, motion, and vision systems</li>
+        <p style="font-size:.85rem; color:var(--accent); font-weight:600; margin-bottom:16px;">
+          Full-time · On-site · 3+ years
+        </p>
+        <ul class="pillar-list" style="margin-bottom:22px;">
+          <li><i class="fa-solid fa-check"></i> Robotic cell &amp; EOAT design</li>
+          <li><i class="fa-solid fa-check"></i> PLC, motion &amp; vision systems</li>
           <li><i class="fa-solid fa-check"></i> Hands-on commissioning experience</li>
+          <li><i class="fa-solid fa-check"></i> Fanuc / KUKA / ABB proficiency</li>
         </ul>
-        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="service-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ======================================================================
-     CTA BANNER
-     ====================================================================== -->
-<section class="section-sm">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2>Ready to engineer something exceptional?</h2>
-      <p>Tell us about your project. We'll respond within one business day with a technical point of view and a clear next step.</p>
-      <a href="#contact" class="btn btn-primary btn-lg">
-        Start a Conversation <i class="fa-solid fa-arrow-right"></i>
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-ghost btn-lg">
+        View all 12 open roles <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ======================================================================
+<!-- =========================================================================
+     FAQ
+     ========================================================================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-question">
+          What industries does 3D Mech Design specialize in?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We serve aerospace, automotive &amp; EV, energy &amp; power, industrial
+            machinery, medical devices, space &amp; satellites, oil &amp; gas,
+            rail &amp; transit, marine, semiconductor, and chemical process industries.
+            Our core strength is in regulated, high-stakes engineering environments
+            where documentation and traceability matter as much as design quality.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do you engage with new clients?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Every engagement starts with a discovery call and a short, fixed-price
+            scoping phase. Based on that, we propose either a fixed-scope project,
+            a dedicated-team retainer, or a staff-augmentation arrangement. Most
+            clients start with a pilot project and scale from there.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What CAD and CAE tools do you use?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We're proficient in SolidWorks, CATIA V6, Siemens NX, PTC Creo, and
+            Autodesk Inventor for CAD. For simulation, we use Ansys, Abaqus,
+            STAR-CCM+, Fluent, and Nastran. We also work with Teamcenter, Windchill,
+            3DEXPERIENCE, and Aras for PLM — so we can plug directly into your
+            existing toolchain.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you sign NDAs and handle ITAR / export-controlled data?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes. We routinely sign NDAs and can operate under ITAR, EAR, and other
+            export-control regimes. We maintain segregated project environments,
+            access-controlled file systems, and can work with your security team
+            to meet specific compliance requirements.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do you price your services?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We offer three engagement models: fixed-price for well-defined projects,
+            time-and-materials for exploratory work, and monthly retainers for
+            ongoing partnerships. Every proposal includes a clear scope, deliverables,
+            assumptions, and timeline — no surprises.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can you take a project from concept all the way to production?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Absolutely. We routinely deliver full product development programs —
+            from initial concept and feasibility studies through detailed design,
+            simulation, prototyping, validation, and production release. We also
+            provide manufacturing support and supplier qualification services.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How quickly can you start a new project?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            For most engagements, we can mobilize a team within 1–3 weeks of a signed
+            agreement. For urgent simulation or troubleshooting work, we can often
+            start within 48–72 hours.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you offer on-site engineering support?
+          <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes. While much of our work is done remotely, we routinely deploy
+            engineers on-site for commissioning, validation testing, and
+            integration projects. We have staff available for short-term and
+            long-term on-site engagements worldwide.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     CTA BANNER
+     ========================================================================= -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to engineer something exceptional?</h2>
+      <p>
+        Tell us about your project. We'll respond within one business day with a
+        technical point of view and a clear next step.
+      </p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">
+          Start a Conversation <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#cases" class="btn btn-ghost btn-lg">
+          <i class="fa-solid fa-circle-play"></i> See Case Studies
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
      CONTACT
-     ====================================================================== -->
+     ========================================================================= -->
 <section class="section" id="contact">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Contact</span>
       <h2>Let's talk engineering</h2>
-      <p>Whether you need a single simulation or a full product development partner, we're ready.</p>
+      <p class="lead">
+        Whether you need a single simulation or a full product development partner,
+        we're ready to help.
+      </p>
     </div>
 
     <div class="contact-grid">
+
       <div class="contact-info">
         <div class="contact-item reveal">
           <i class="fa-solid fa-location-dot"></i>
           <div>
             <h4>Headquarters</h4>
-            <p>3D Mech Design Studio<br>Industrial Park, Building 12<br>Your City, Country</p>
+            <p>
+              3D Mech Design Studio<br>
+              Industrial Park, Building 12<br>
+              Your City, Country
+            </p>
           </div>
         </div>
+
         <div class="contact-item reveal d1">
           <i class="fa-solid fa-envelope"></i>
           <div>
@@ -1584,34 +3770,41 @@ p { color: var(--text-2); font-size: 1.02rem; }
             <a href="mailto:careers@3dmechdesign.com">careers@3dmechdesign.com</a>
           </div>
         </div>
+
         <div class="contact-item reveal d2">
           <i class="fa-solid fa-phone"></i>
           <div>
             <h4>Phone</h4>
-            <a href="tel:+10000000000">+1 (000) 000-0000</a>
+            <a href="tel:+10000000000">+1 (000) 000-0000</a><br>
+            <span style="color:var(--text-3); font-size:.82rem;">Mon – Fri · 09:00 – 18:00</span>
           </div>
         </div>
+
         <div class="contact-item reveal d3">
           <i class="fa-solid fa-clock"></i>
           <div>
-            <h4>Working Hours</h4>
-            <p>Monday – Friday · 09:00 – 18:00<br>Weekend support available on request</p>
+            <h4>Response Time</h4>
+            <p>
+              Within 1 business day<br>
+              Urgent projects: 48–72 hour mobilization
+            </p>
           </div>
         </div>
       </div>
 
-      <form class="form reveal d1" id="contactForm" novalidate>
+      <form class="contact-form reveal d1" id="contactForm" novalidate>
         <div class="form-success" id="formSuccess">
-          <i class="fa-solid fa-circle-check"></i> Thank you — your message has been sent. We'll reply shortly.
+          <i class="fa-solid fa-circle-check"></i>
+          Thank you — your message has been sent. We'll reply within one business day.
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name">Full Name *</label>
             <input type="text" id="name" name="name" required placeholder="Jane Doe">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email *</label>
             <input type="email" id="email" name="email" required placeholder="jane@company.com">
           </div>
         </div>
@@ -1625,38 +3818,89 @@ p { color: var(--text-2); font-size: 1.02rem; }
             <label for="service">Service of Interest</label>
             <select id="service" name="service">
               <option value="">Select a service</option>
-              <option>3D CAD & Modeling</option>
+              <option>3D CAD &amp; Modeling</option>
               <option>CAE Simulation</option>
               <option>Digital Twin</option>
-              <option>Automation & Robotics</option>
+              <option>Automation &amp; Robotics</option>
               <option>Additive Manufacturing</option>
-              <option>Compliance & Certification</option>
-              <option>Other</option>
+              <option>CAM &amp; CNC Programming</option>
+              <option>Compliance &amp; Certification</option>
+              <option>PLM Integration</option>
+              <option>Other / Not sure yet</option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="message">Project Details</label>
+          <label for="message">Project Details *</label>
           <textarea id="message" name="message" required placeholder="Tell us about your project, timeline, and goals..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+        <label class="form-checkbox">
+          <input type="checkbox" id="consent" required>
+          <span>
+            I agree to the processing of my data in accordance with the
+            <a href="#privacy">privacy policy</a>.
+          </span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
           Send Message <i class="fa-solid fa-paper-plane"></i>
         </button>
       </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     OFFICES
+     ========================================================================= -->
+<section class="section" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Global Presence</span>
+      <h2>Four studios. One engineering standard.</h2>
+    </div>
+
+    <div class="offices-grid">
+      <div class="office-card reveal">
+        <span class="office-flag">🇺🇸</span>
+        <h4>North America</h4>
+        <div class="city">Detroit · USA</div>
+        <p>Automotive, aerospace, and industrial machinery delivery hub.</p>
+      </div>
+      <div class="office-card reveal d1">
+        <span class="office-flag">🇩🇪</span>
+        <h4>Europe</h4>
+        <div class="city">Munich · Germany</div>
+        <p>Precision engineering, medical devices, and CE compliance.</p>
+      </div>
+      <div class="office-card reveal d2">
+        <span class="office-flag">🇦🇪</span>
+        <h4>Middle East</h4>
+        <div class="city">Dubai · UAE</div>
+        <p>Energy, oil &amp; gas, and construction equipment engineering.</p>
+      </div>
+      <div class="office-card reveal d3">
+        <span class="office-flag">🇸🇬</span>
+        <h4>Asia Pacific</h4>
+        <div class="city">Singapore</div>
+        <p>Semiconductor, marine, and electronics manufacturing support.</p>
+      </div>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ======================================================================
+<!-- =========================================================================
      FOOTER
-     ====================================================================== -->
+     ========================================================================= -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
+
       <div class="footer-brand">
         <a href="#top" class="logo">
           <span class="logo-mark"><i class="fa-solid fa-cube"></i></span>
@@ -1665,78 +3909,147 @@ p { color: var(--text-2); font-size: 1.02rem; }
             <span>Engineering Excellence</span>
           </span>
         </a>
-        <p>Precision mechanical engineering, simulation, and digital twin services for the world's most demanding industries.</p>
+        <p>
+          Precision mechanical engineering, simulation, and digital twin services
+          for the world's most demanding industries. Founded 2007.
+        </p>
         <div class="footer-socials">
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
           <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#services">3D CAD & Modeling</a></li>
-          <li><a href="#services">CAE Simulation</a></li>
-          <li><a href="#services">Digital Twin</a></li>
-          <li><a href="#services">Automation & Robotics</a></li>
-          <li><a href="#services">Additive Manufacturing</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> 3D CAD &amp; Modeling</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> CAE Simulation</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Digital Twin</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Automation &amp; Robotics</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Additive Manufacturing</a></li>
+          <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> PLM Integration</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#cases">Case Studies</a></li>
-          <li><a href="#process">Our Process</a></li>
-          <li><a href="#careers">Careers</a></li>
-          <li><a href="#insights">Insights</a></li>
+          <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#industries"><i class="fa-solid fa-chevron-right"></i> Industries</a></li>
+          <li><a href="#cases"><i class="fa-solid fa-chevron-right"></i> Case Studies</a></li>
+          <li><a href="#team"><i class="fa-solid fa-chevron-right"></i> Leadership</a></li>
+          <li><a href="#careers"><i class="fa-solid fa-chevron-right"></i> Careers</a></li>
+          <li><a href="#insights"><i class="fa-solid fa-chevron-right"></i> Insights</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Resources</h5>
         <ul>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Sitemap</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> FAQ</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Documentation</a></li>
+          <li><a href="#privacy"><i class="fa-solid fa-chevron-right"></i> Privacy Policy</a></li>
+          <li><a href="#terms"><i class="fa-solid fa-chevron-right"></i> Terms of Service</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right"></i> Sitemap</a></li>
         </ul>
       </div>
+
+      <div class="footer-col footer-newsletter">
+        <h5>Newsletter</h5>
+        <p>
+          Engineering insights, case studies, and industry analysis — delivered
+          monthly. No spam, ever.
+        </p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="you@company.com" required aria-label="Email address">
+          <button type="submit">
+            Subscribe <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
     </div>
 
     <div class="footer-bottom">
-      <span>© <span id="year"></span> 3D Mech Design. All rights reserved.</span>
-      <span>Engineered with <i class="fa-solid fa-heart" style="color:var(--red)"></i> for builders.</span>
+      <span>
+        © <span id="year"></span> 3D Mech Design. All rights reserved.
+      </span>
+      <div class="footer-bottom-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#cookies">Cookies</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#sitemap">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- Back to top -->
+<!-- =========================================================================
+     FLOATING WIDGETS
+     ========================================================================= -->
 <button class="to-top" id="toTop" aria-label="Back to top">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<!-- ======================================================================
+<button class="chat-widget" id="chatWidget" aria-label="Open chat">
+  <i class="fa-solid fa-comments"></i>
+</button>
+
+<!-- =========================================================================
      JAVASCRIPT
-     ====================================================================== -->
+     ========================================================================= -->
 <script>
 (function () {
   'use strict';
 
-  /* ---------- THEME TOGGLE ---------- */
+  /* =====================================================================
+     PRELOADER
+     ===================================================================== */
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+      preloader.classList.add('hide');
+      document.body.classList.remove('loading');
+    }, 600);
+  });
+
+  /* =====================================================================
+     COOKIE BANNER
+     ===================================================================== */
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const cookieDecline = document.getElementById('cookieDecline');
+
+  setTimeout(() => {
+    if (!localStorage.getItem('3dmd-cookie')) {
+      cookieBanner.classList.add('show');
+    }
+  }, 2200);
+
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('3dmd-cookie', 'accepted');
+    cookieBanner.classList.remove('show');
+  });
+  cookieDecline.addEventListener('click', () => {
+    localStorage.setItem('3dmd-cookie', 'declined');
+    cookieBanner.classList.remove('show');
+  });
+
+  /* =====================================================================
+     THEME TOGGLE
+     ===================================================================== */
   const html = document.documentElement;
   const themeBtn = document.getElementById('themeToggle');
   const themeIcon = themeBtn.querySelector('i');
 
-  const savedTheme = localStorage.getItem('3dmd-theme');
-  if (savedTheme) {
-    html.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-  }
+  const savedTheme = localStorage.getItem('3dmd-theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
 
   themeBtn.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -1751,85 +4064,255 @@ p { color: var(--text-2); font-size: 1.02rem; }
       : 'fa-solid fa-moon';
   }
 
-  /* ---------- MOBILE MENU ---------- */
+  /* =====================================================================
+     MOBILE MENU
+     ===================================================================== */
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
+
   menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    navLinks.classList.toggle('mobile-open');
     const icon = menuBtn.querySelector('i');
-    icon.className = navLinks.classList.contains('open')
+    icon.className = navLinks.classList.contains('mobile-open')
       ? 'fa-solid fa-xmark'
       : 'fa-solid fa-bars';
   });
+
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+      if (window.innerWidth <= 1080) {
+        navLinks.classList.remove('mobile-open');
+        menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+      }
     });
   });
 
-  /* ---------- HEADER SCROLL ---------- */
+  /* =====================================================================
+     HEADER SCROLL
+     ===================================================================== */
   const header = document.getElementById('header');
+  const toTop = document.getElementById('toTop');
+
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
-    document.getElementById('toTop').classList.toggle('show', window.scrollY > 500);
+    toTop.classList.toggle('show', window.scrollY > 500);
   }, { passive: true });
 
-  /* ---------- BACK TO TOP ---------- */
-  document.getElementById('toTop').addEventListener('click', () => {
+  toTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ---------- SCROLL REVEAL ---------- */
+  /* =====================================================================
+     SCROLL REVEAL
+     ===================================================================== */
   const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
+  const revealIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        io.unobserve(entry.target);
+        revealIO.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => io.observe(el));
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealIO.observe(el));
 
-  /* ---------- ACTIVE NAV LINK ---------- */
+  /* =====================================================================
+     STATS COUNTER ANIMATION
+     ===================================================================== */
+  const statNums = document.querySelectorAll('.stat-num[data-count]');
+  const statIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1600;
+        const start = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(target * eased);
+          el.innerHTML = current + '<span class="plus">' + suffix + '</span>';
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        statIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  statNums.forEach(el => statIO.observe(el));
+
+  /* =====================================================================
+     ACTIVE NAV LINK ON SCROLL
+     ===================================================================== */
   const sections = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links a');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
   const navIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
+        const id = '#' + entry.target.getAttribute('id');
         navAnchors.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          a.classList.toggle('active', a.getAttribute('href') === id);
         });
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   sections.forEach(s => navIO.observe(s));
 
-  /* ---------- CONTACT FORM (demo) ---------- */
+  /* =====================================================================
+     SERVICES TAB FILTER
+     ===================================================================== */
+  const tabs = document.querySelectorAll('.services-tab');
+  const serviceCards = document.querySelectorAll('.service-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filter = tab.dataset.tab;
+      serviceCards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+          card.style.animation = 'fadeIn .4s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* =====================================================================
+     TESTIMONIAL SLIDER
+     ===================================================================== */
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  let currentSlide = 0;
+  let autoPlayTimer;
+
+  function showSlide(index) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+  }
+  function prevSlide() {
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
+  }
+
+  nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+  prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { showSlide(i); resetAutoPlay(); });
+  });
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = setInterval(nextSlide, 6500);
+  }
+  resetAutoPlay();
+
+  /* =====================================================================
+     FAQ ACCORDION
+     ===================================================================== */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      faqItems.forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* =====================================================================
+     CONTACT FORM
+     ===================================================================== */
   const form = document.getElementById('contactForm');
-  const success = document.getElementById('formSuccess');
+  const formSuccess = document.getElementById('formSuccess');
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const required = form.querySelectorAll('[required]');
     let valid = true;
+
     required.forEach(field => {
-      if (!field.value.trim()) {
+      if (field.type === 'checkbox' && !field.checked) {
+        valid = false;
+        field.parentElement.style.color = 'var(--red)';
+      } else if (field.type !== 'checkbox' && !field.value.trim()) {
         field.style.borderColor = 'var(--red)';
         valid = false;
       } else {
         field.style.borderColor = '';
+        if (field.type === 'checkbox') field.parentElement.style.color = '';
       }
     });
+
     if (!valid) return;
-    success.classList.add('show');
+
+    formSuccess.classList.add('show');
     form.reset();
-    setTimeout(() => success.classList.remove('show'), 6000);
+    setTimeout(() => formSuccess.classList.remove('show'), 6000);
   });
 
-  /* ---------- FOOTER YEAR ---------- */
+  /* =====================================================================
+     NEWSLETTER FORM
+     ===================================================================== */
+  const newsletter = document.getElementById('newsletterForm');
+  newsletter.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = newsletter.querySelector('input');
+    const btn = newsletter.querySelector('button');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> Subscribed!';
+    btn.style.background = 'var(--green)';
+    input.value = '';
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.style.background = '';
+    }, 3000);
+  });
+
+  /* =====================================================================
+     LANGUAGE SWITCH (visual only)
+     ===================================================================== */
+  const langBtns = document.querySelectorAll('.topbar-lang button');
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  /* =====================================================================
+     FOOTER YEAR
+     ===================================================================== */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* =====================================================================
+     CHAT WIDGET (visual only)
+     ===================================================================== */
+  document.getElementById('chatWidget').addEventListener('click', () => {
+    alert('Live chat is coming soon!\n\nIn the meantime, please email hello@3dmechdesign.com or use the contact form.');
+  });
 
 })();
 </script>
