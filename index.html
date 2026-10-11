@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Mech Design — Engineering Excellence | CAD, CAE, Digital Twin</title>
+<meta name="description" content="3D Mech Design delivers world-class mechanical engineering, CAD/CAE simulation, digital twin, and Industry 4.0 solutions for aerospace, automotive, energy, and industrial manufacturers.">
+<meta name="author" content="3D Mech Design">
+<meta name="theme-color" content="#0b0f15">
+
+<!-- ======================================================================
+     EXTERNAL ASSETS & FONTS
+     ====================================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+
+<style>
+/* ======================================================================
+   DESIGN TOKENS / CSS VARIABLES
+   ====================================================================== */
+:root {
+  --bg:           #080b10;
+  --bg-alt:       #0d121a;
+  --bg-elev:      #121924;
+  --bg-card:      #161f2c;
+  --surface:      #1c2634;
+  --border:       #24303f;
+  --border-soft:  #1a2431;
+  --text:         #eef3f9;
+  --text-2:       #a3b1c2;
+  --text-3:       #6d7d8f;
+  --accent:       #00d4ff;
+  --accent-2:     #0091c2;
+  --accent-glow:  rgba(0, 212, 255, 0.14);
+  --violet:       #7c5cff;
+  --green:        #2ee6a8;
+  --amber:        #ffb547;
+  --red:          #ff5c7a;
+  --radius-s:     8px;
+  --radius-m:     14px;
+  --radius-l:     22px;
+  --radius-xl:    32px;
+  --shadow-1:     0 6px 24px rgba(0,0,0,.35);
+  --shadow-2:     0 18px 48px rgba(0,0,0,.5);
+  --shadow-glow:  0 0 60px rgba(0,212,255,.18);
+  --ease:         cubic-bezier(.22,.9,.35,1);
+  --font:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+  --maxw:         1280px;
+}
+
+[data-theme="light"] {
+  --bg:           #f6f8fc;
+  --bg-alt:       #ffffff;
+  --bg-elev:      #ffffff;
+  --bg-card:      #ffffff;
+  --surface:      #eef2f8;
+  --border:       #dce3ee;
+  --border-soft:  #e8edf5;
+  --text:         #0a1626;
+  --text-2:       #43556c;
+  --text-3:       #78899c;
+  --accent:       #0077b6;
+  --accent-2:     #005f8c;
+  --accent-glow:  rgba(0,119,182,.1);
+  --shadow-1:     0 6px 24px rgba(10,30,60,.08);
+  --shadow-2:     0 18px 48px rgba(10,30,60,.14);
+}
+
+/* ======================================================================
+   RESET
+   ====================================================================== */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  font-weight: 400;
+  overflow-x: hidden;
+  transition: background .35s var(--ease), color .35s var(--ease);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent); text-decoration: none; transition: color .2s var(--ease); }
+a:hover { color: var(--accent-2); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; }
+::selection { background: var(--accent); color: #041018; }
+
+/* ======================================================================
+   LAYOUT
+   ====================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section { padding: 110px 0; position: relative; }
+.section-sm { padding: 72px 0; }
+.grid { display: grid; gap: 24px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 960px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+}
+
+/* ======================================================================
+   TYPOGRAPHY
+   ====================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  color: var(--text);
+}
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; }
+h2 { font-size: clamp(1.9rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 700; }
+h4 { font-size: 1.15rem; font-weight: 700; }
+p { color: var(--text-2); font-size: 1.02rem; }
+.lead { font-size: 1.15rem; color: var(--text-2); line-height: 1.7; max-width: 620px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.section-head { max-width: 720px; margin-bottom: 64px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head h2 { margin-bottom: 18px; }
+.section-head p { font-size: 1.1rem; }
+
+/* ======================================================================
+   BUTTONS
+   ====================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  font-size: .95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all .25s var(--ease);
+  white-space: nowrap;
+  line-height: 1;
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #041018;
+  box-shadow: 0 8px 26px rgba(0,212,255,.35);
+}
+.btn-primary:hover {
+  background: #fff;
+  color: #041018;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(0,212,255,.5);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.btn-lg { padding: 18px 40px; font-size: 1rem; }
+.btn-sm { padding: 10px 20px; font-size: .85rem; }
+
+/* ======================================================================
+   HEADER / NAV
+   ====================================================================== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 18px 0;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all .3s var(--ease);
+}
+.header.scrolled {
+  padding: 12px 0;
+  border-bottom-color: var(--border);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: -.03em;
+  color: var(--text);
+}
+.logo:hover { color: var(--text); }
+.logo-mark {
+  width: 40px; height: 40px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--violet));
+  border-radius: 11px;
+  color: #041018;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 20px rgba(0,212,255,.35);
+  position: relative;
+  overflow: hidden;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.5), transparent 60%);
+}
+.logo-text { display: flex; flex-direction: column; line-height: 1.05; }
+.logo-text span:first-child { font-size: 1.1rem; font-weight: 900; }
+.logo-text span:last-child {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links a {
+  padding: 10px 16px;
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--text-2);
+  border-radius: 8px;
+  position: relative;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+  background: var(--surface);
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%;
+  transform: translateX(-50%);
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-2);
+  font-size: 1rem;
+  transition: all .25s var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(15deg);
+}
+
+.menu-btn {
+  display: none;
+  width: 44px; height: 44px;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .menu-btn { display: grid; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--bg-elev);
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    align-items: stretch;
+    animation: slideDown .3s var(--ease);
+  }
+  .nav-links.open a { padding: 14px 16px; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================================================
+   HERO
+   ====================================================================== */
+.hero {
+  min-height: 100vh;
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+  animation: float 22s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; left: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(124,92,255,.12) 0%, transparent 65%);
+  pointer-events: none;
+  animation: float 28s ease-in-out infinite reverse;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.08); }
+}
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 1000px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+}
+
+.hero h1 { margin-bottom: 24px; }
+.hero h1 .grad {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--violet) 55%, var(--green) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.hero-sub {
+  font-size: 1.18rem;
+  color: var(--text-2);
+  max-width: 560px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+@media (max-width: 1000px) {
+  .hero-cta { justify-content: center; }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 1000px) { .hero-stats { justify-content: center; } }
+.hero-stat .num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -.04em;
+  font-family: var(--mono);
+}
+.hero-stat .num span { color: var(--accent); }
+.hero-stat .lbl {
+  font-size: .78rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Hero visual (animated 3D cube / blueprint) */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 460px;
+  margin-left: auto;
+}
+@media (max-width: 1000px) { .hero-visual { margin: 0 auto; max-width: 340px; } }
+.cube-scene {
+  width: 100%; height: 100%;
+  perspective: 1200px;
+  display: grid; place-items: center;
+}
+.cube {
+  width: 200px; height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCube 22s linear infinite;
+}
+@keyframes spinCube {
+  from { transform: rotateX(-20deg) rotateY(0deg); }
+  to { transform: rotateX(-20deg) rotateY(360deg); }
+}
+.cube-face {
+  position: absolute;
+  width: 200px; height: 200px;
+  border: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: inset 0 0 40px rgba(0,212,255,.25);
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: .7rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.cube-face::before,
+.cube-face::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.cube-face::after { inset: 40px; }
+.f1 { transform: translateZ(100px); }
+.f2 { transform: rotateY(180deg) translateZ(100px); }
+.f3 { transform: rotateY(90deg) translateZ(100px); }
+.f4 { transform: rotateY(-90deg) translateZ(100px); }
+.f5 { transform: rotateX(90deg) translateZ(100px); }
+.f6 { transform: rotateX(-90deg) translateZ(100px); }
+
+/* ======================================================================
+   LOGO MARQUEE (trusted by)
+   ====================================================================== */
+.marquee-wrap {
+  padding: 40px 0;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  overflow: hidden;
+  position: relative;
+}
+.marquee-label {
+  text-align: center;
+  font-size: .78rem;
+  font-family: var(--mono);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 26px;
+}
+.marquee {
+  display: flex;
+  gap: 70px;
+  animation: scroll 32s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.marquee-item {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-3);
+  letter-spacing: -.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: .65;
+  transition: opacity .3s;
+}
+.marquee-item:hover { opacity: 1; color: var(--accent); }
+.marquee-item i { font-size: 1.5rem; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ======================================================================
+   CARDS
+   ====================================================================== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: 36px 32px;
+  transition: all .35s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s var(--ease);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-2), 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  width: 58px; height: 58px;
+  display: grid; place-items: center;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-radius: 16px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  transition: all .35s var(--ease);
+}
+.card:hover .card-icon {
+  background: var(--accent);
+  color: #041018;
+  transform: scale(1.08) rotate(-6deg);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+.card h3 { margin-bottom: 12px; }
+.card p { font-size: .97rem; margin-bottom: 20px; }
+
+.card-list { display: grid; gap: 8px; margin-bottom: 22px; }
+.card-list li {
+  font-size: .9rem;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-list li i {
+  color: var(--accent);
+  font-size: .8rem;
+  flex-shrink: 0;
+}
+
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.card-link i { transition: transform .3s var(--ease); }
+.card-link:hover i { transform: translateX(6px); }
+
+/* ======================================================================
+   PILLARS / CAPABILITY STRIP
+   ====================================================================== */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 56px;
+}
+@media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
+
+.pillar {
+  background: linear-gradient(150deg, var(--bg-card), var(--bg-alt));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: 40px 34px;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s var(--ease);
+}
+.pillar::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity .45s;
+}
+.pillar:hover::after { opacity: 1; }
+.pillar:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+.pillar-num {
+  font-family: var(--mono);
+  font-size: .75rem;
+  color: var(--accent);
+  letter-spacing: .2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: block;
+}
+.pillar h3 { font-size: 1.35rem; margin-bottom: 14px; }
+.pillar p { font-size: .95rem; }
+
+/* ======================================================================
+   INDUSTRIES
+   ====================================================================== */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+@media (max-width: 1000px) { .industries-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .industries-grid { grid-template-columns: 1fr; } }
+
+.industry {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 28px 22px;
+  text-align: center;
+  transition: all .3s var(--ease);
+  cursor: pointer;
+}
+.industry i {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+  transition: transform .35s var(--ease);
+}
+.industry:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  transform: translateY(-4px);
+}
+.industry:hover i { transform: scale(1.15) translateY(-3px); }
+.industry h4 { font-size: .95rem; margin-bottom: 4px; }
+.industry span { font-size: .78rem; color: var(--text-3); }
+
+/* ======================================================================
+   CASE STUDIES
+   ====================================================================== */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+
+.case-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  transition: all .35s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.case-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  box-shadow: var(--shadow-2);
+}
+.case-thumb {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #0d1f33, #1a2f4a);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-size: 3rem;
+}
+.case-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.case-thumb i { position: relative; z-index: 1; filter: drop-shadow(0 0 14px var(--accent)); }
+.case-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.case-tag {
+  display: inline-block;
+  font-size: .7rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--accent);
+  background: var(--accent-glow);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+.case-body h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.case-body p { font-size: .92rem; flex: 1; }
+.case-metrics {
+  display: flex;
+  gap: 22px;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.case-metric .v {
+  font-family: var(--mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -.03em;
+}
+.case-metric .k {
+  font-size: .72rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ======================================================================
+   PROCESS TIMELINE
+   ====================================================================== */
+.process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 56px;
+  position: relative;
+}
+@media (max-width: 1000px) { .process { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .process { grid-template-columns: 1fr; } }
+
+.step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 28px 22px;
+  position: relative;
+  transition: all .3s var(--ease);
+}
+.step:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #041018;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: .95rem;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 20px rgba(0,212,255,.35);
+}
+.step h4 { font-size: 1rem; margin-bottom: 8px; }
+.step p { font-size: .85rem; }
+
+/* ======================================================================
+   INSIGHTS
+   ====================================================================== */
+.insight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 30px 26px;
+  transition: all .3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.insight-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.insight-date {
+  font-family: var(--mono);
+  font-size: .74rem;
+  color: var(--text-3);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.insight-card h4 { font-size: 1.05rem; margin-bottom: 10px; line-height: 1.35; }
+.insight-card p { font-size: .88rem; }
+
+/* ======================================================================
+   CTA BANNER
+   ====================================================================== */
+.cta-banner {
+  background: linear-gradient(120deg, #0a1a2c, #132a44 50%, #1a1f3a);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 72px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  pointer-events: none;
+}
+.cta-banner > * { position: relative; z-index: 1; }
+.cta-banner h2 { margin-bottom: 18px; }
+.cta-banner p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 36px; }
+
+/* ======================================================================
+   CONTACT FORM
+   ====================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.contact-info { display: grid; gap: 24px; }
+.contact-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  transition: all .3s var(--ease);
+}
+.contact-item:hover { border-color: var(--accent); }
+.contact-item i {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-radius: 12px;
+  font-size: 1.1rem;
+}
+.contact-item h4 { font-size: .95rem; margin-bottom: 3px; }
+.contact-item p, .contact-item a { font-size: .9rem; color: var(--text-2); }
+.contact-item a:hover { color: var(--accent); }
+
+.form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: 40px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.form-group label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: .95rem;
+  transition: all .2s var(--ease);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.form-group textarea { resize: vertical; min-height: 130px; font-family: inherit; }
+.form-success {
+  display: none;
+  padding: 14px 18px;
+  background: rgba(46,230,168,.12);
+  border: 1px solid rgba(46,230,168,.4);
+  border-radius: 10px;
+  color: var(--green);
+  font-size: .9rem;
+  margin-bottom: 18px;
+}
+.form-success.show { display: block; animation: slideDown .3s var(--ease); }
+
+/* ======================================================================
+   FOOTER
+   ====================================================================== */
+.footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 80px 0 32px;
+  margin-top: 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+.footer-brand p { font-size: .92rem; margin: 18px 0 24px; max-width: 340px; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-socials a {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-2);
+  transition: all .25s var(--ease);
+}
+.footer-socials a:hover {
+  background: var(--accent);
+  color: #041018;
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.footer-col h5 {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--text-3);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.footer-col ul { display: grid; gap: 12px; }
+.footer-col a {
+  color: var(--text-2);
+  font-size: .9rem;
+}
+.footer-col a:hover { color: var(--accent); padding-left: 4px; }
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: .85rem;
+  color: var(--text-3);
+}
+.footer-bottom a { color: var(--text-3); }
+.footer-bottom a:hover { color: var(--accent); }
+
+/* ======================================================================
+   SCROLL REVEAL
+   ====================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; }
+.reveal.d4 { transition-delay: .4s; }
+.reveal.d5 { transition-delay: .5s; }
+
+/* ======================================================================
+   BACK TO TOP
+   ====================================================================== */
+.to-top {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 48px; height: 48px;
+  background: var(--accent);
+  color: #041018;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1rem;
+  box-shadow: 0 8px 24px rgba(0,212,255,.4);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all .35s var(--ease);
+  z-index: 900;
+}
+.to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.to-top:hover { background: #fff; transform: translateY(-4px); }
+
+/* ======================================================================
+   REDUCED MOTION
+   ====================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================================================================
+     HEADER
+     ====================================================================== -->
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><i class="fa-solid fa-cube"></i></span>
+      <span class="logo-text">
+        <span>3D Mech Design</span>
+        <span>Engineering Excellence</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" class="active">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#process">Process</a>
+      <a href="#insights">Insights</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================================================================
+     HERO
+     ====================================================================== -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow reveal">Mechanical Engineering · Digital Twin · Industry 4.0</span>
+      <h1 class="reveal d1">
+        Precision engineering for the <span class="grad">next industrial era</span>
+      </h1>
+      <p class="hero-sub reveal d2">
+        From concept sketches to certified digital twins — 3D Mech Design partners with aerospace, automotive, energy, and advanced manufacturing leaders to deliver faster, lighter, and smarter products.
+      </p>
+      <div class="hero-cta reveal d3">
+        <a href="#services" class="btn btn-primary btn-lg">
+          Explore Services <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#cases" class="btn btn-ghost btn-lg">
+          <i class="fa-solid fa-play"></i> View Case Studies
+        </a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div class="hero-stat">
+          <div class="num">18<span>+</span></div>
+          <div class="lbl">Years of Practice</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">420<span>+</span></div>
+          <div class="lbl">Projects Delivered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">99<span>%</span></div>
+          <div class="lbl">On-Time Delivery</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">30<span>+</span></div>
+          <div class="lbl">Global Clients</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal d2">
+      <div class="cube-scene">
+        <div class="cube">
+          <div class="cube-face f1">CAD</div>
+          <div class="cube-face f2">CAE</div>
+          <div class="cube-face f3">CFD</div>
+          <div class="cube-face f4">FEA</div>
+          <div class="cube-face f5">CAM</div>
+          <div class="cube-face f6">PLM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     TRUSTED BY MARQUEE
+     ====================================================================== -->
+<section class="marquee-wrap">
+  <div class="container">
+    <p class="marquee-label">Trusted by engineering & manufacturing leaders</p>
+  </div>
+  <div class="marquee">
+    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn</span>
+    <span class="marquee-item"><i class="fa-solid fa-car-side"></i> VelocityMotors</span>
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid</span>
+    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab</span>
+    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore</span>
+    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow</span>
+    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems</span>
+    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks</span>
+
+    <span class="marquee-item"><i class="fa-solid fa-jet-fighter"></i> AeroDyn</span>
+    <span class="marquee-item"><i class="fa-solid fa-car-side"></i> VelocityMotors</span>
+    <span class="marquee-item"><i class="fa-solid fa-bolt"></i> NovaGrid</span>
+    <span class="marquee-item"><i class="fa-solid fa-industry"></i> TitanFab</span>
+    <span class="marquee-item"><i class="fa-solid fa-robot"></i> RoboCore</span>
+    <span class="marquee-item"><i class="fa-solid fa-wind"></i> AeroFlow</span>
+    <span class="marquee-item"><i class="fa-solid fa-satellite"></i> OrbitSystems</span>
+    <span class="marquee-item"><i class="fa-solid fa-gears"></i> MechWorks</span>
+  </div>
+</section>
+
+<!-- ======================================================================
+     SERVICES / PILLARS
+     ====================================================================== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our Services</span>
+      <h2>Three pillars. Two technology foundations. One partner.</h2>
+      <p>We focus on three engineering playing fields at the core of modern industrial business — each underpinned by data, simulation, and cloud-native platforms.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <span class="pillar-num">PILLAR 01</span>
+        <h3>Product Engineering</h3>
+        <p>End-to-end mechanical design — from concept ideation and detailed CAD to DFM, DFA, and production-ready drawings.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="pillar-num">PILLAR 02</span>
+        <h3>Simulation & Validation</h3>
+        <p>Physics-based CAE — FEA, CFD, thermal, fatigue, and multi-body dynamics to virtual-validate before you cut metal.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <span class="pillar-num">PILLAR 03</span>
+        <h3>Digital Manufacturing</h3>
+        <p>Digital twin, PLM, CAM, and Industry 4.0 integration to connect design intent with the factory floor.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-3" style="margin-top: 56px;">
+      <div class="card reveal">
+        <div class="card-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+        <h3>3D CAD & Modeling</h3>
+        <p>Parametric, surface, and generative design across SolidWorks, CATIA, NX, Creo, and Inventor.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Concept & industrial design</li>
+          <li><i class="fa-solid fa-check"></i> Detailed part & assembly modeling</li>
+          <li><i class="fa-solid fa-check"></i> GD&T and 2D drawing release</li>
+        </ul>
+        <a href="#contact" class="card-link">Discuss a project <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card reveal d1">
+        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>CAE Simulation</h3>
+        <p>Nonlinear FEA, CFD, thermal, vibration, and fatigue analysis with Ansys, Abaqus, and STAR-CCM+.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Structural & modal FEA</li>
+          <li><i class="fa-solid fa-check"></i> CFD & thermal management</li>
+          <li><i class="fa-solid fa-check"></i> Drop, crash & impact testing</li>
+        </ul>
+        <a href="#contact" class="card-link">Run a simulation <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card reveal d2">
+        <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+        <h3>Digital Twin</h3>
+        <p>Connected virtual replicas of physical assets — real-time monitoring, predictive maintenance, and optimization.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> IoT & sensor integration</li>
+          <li><i class="fa-solid fa-check"></i> Predictive maintenance models</li>
+          <li><i class="fa-solid fa-check"></i> Real-time 3D visualization</li>
+        </ul>
+        <a href="#contact" class="card-link">Build a twin <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Automation & Robotics</h3>
+        <p>Custom robotic cells, end-of-arm tooling, and factory automation designed for throughput and safety.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Robotic cell design</li>
+          <li><i class="fa-solid fa-check"></i> End-of-arm tooling (EOAT)</li>
+          <li><i class="fa-solid fa-check"></i> PLC & motion integration</li>
+        </ul>
+        <a href="#contact" class="card-link">Automate a line <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card reveal d1">
+        <div class="card-icon"><i class="fa-solid fa-print"></i></div>
+        <h3>Additive Manufacturing</h3>
+        <p>DfAM-optimized parts for metal and polymer AM — lattice structures, topology optimization, and rapid prototyping.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Topology optimization</li>
+          <li><i class="fa-solid fa-check"></i> Metal & polymer DfAM</li>
+          <li><i class="fa-solid fa-check"></i> Rapid prototyping & tooling</li>
+        </ul>
+        <a href="#contact" class="card-link">Prototype now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="card reveal d2">
+        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Compliance & Certification</h3>
+        <p>Regulatory alignment for ASME, ISO, CE, and industry-specific standards — documentation included.</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> ASME / ISO / CE support</li>
+          <li><i class="fa-solid fa-check"></i> Design history files (DHF)</li>
+          <li><i class="fa-solid fa-check"></i> FMEA & risk analysis</li>
+        </ul>
+        <a href="#contact" class="card-link">Get certified <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     INDUSTRIES
+     ====================================================================== -->
+<section class="section" id="industries" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Industries We Serve</span>
+      <h2>Deep domain expertise across mission-critical sectors</h2>
+      <p>We speak the language of regulated, high-stakes engineering — where failure is not an option.</p>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry reveal">
+        <i class="fa-solid fa-jet-fighter"></i>
+        <h4>Aerospace & Defense</h4>
+        <span>Structures · Avionics · MRO</span>
+      </div>
+      <div class="industry reveal d1">
+        <i class="fa-solid fa-car-side"></i>
+        <h4>Automotive & EV</h4>
+        <span>Body · Powertrain · Battery</span>
+      </div>
+      <div class="industry reveal d2">
+        <i class="fa-solid fa-bolt"></i>
+        <h4>Energy & Power</h4>
+        <span>Turbines · Grid · Nuclear</span>
+      </div>
+      <div class="industry reveal d3">
+        <i class="fa-solid fa-industry"></i>
+        <h4>Industrial Machinery</h4>
+        <span>Heavy Equipment · OEM</span>
+      </div>
+      <div class="industry reveal">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h4>Medical Devices</h4>
+        <span>ISO 13485 · Implants</span>
+      </div>
+      <div class="industry reveal d1">
+        <i class="fa-solid fa-satellite"></i>
+        <h4>Space & Satellites</h4>
+        <span>Payloads · Ground Systems</span>
+      </div>
+      <div class="industry reveal d2">
+        <i class="fa-solid fa-oil-well"></i>
+        <h4>Oil & Gas</h4>
+        <span>Downhole · Subsea</span>
+      </div>
+      <div class="industry reveal d3">
+        <i class="fa-solid fa-train"></i>
+        <h4>Rail & Transit</h4>
+        <span>Rolling Stock · Signaling</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     CASE STUDIES
+     ====================================================================== -->
+<section class="section" id="cases">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Case Studies</span>
+      <h2>Outcomes that move the P&amp;L</h2>
+      <p>A selection of recent engagements where our engineering directly improved performance, weight, cost, and time-to-market.</p>
+    </div>
+
+    <div class="case-grid">
+      <article class="case-card reveal">
+        <div class="case-thumb"><i class="fa-solid fa-jet-fighter"></i></div>
+        <div class="case-body">
+          <span class="case-tag">Aerospace</span>
+          <h3>Structural weight reduction on a business jet wing</h3>
+          <p>Topology-optimized rib layout and composite ply redesign for a regional aircraft wing box.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">-18%</div><div class="k">Mass</div></div>
+            <div class="case-metric"><div class="v">+12%</div><div class="k">Stiffness</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card reveal d1">
+        <div class="case-thumb"><i class="fa-solid fa-car-battery"></i></div>
+        <div class="case-body">
+          <span class="case-tag">Automotive / EV</span>
+          <h3>Battery pack thermal management for a next-gen EV</h3>
+          <p>CFD-driven cold plate design and pack-level thermal simulation for fast-charge durability.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">-22°C</div><div class="k">Peak cell</div></div>
+            <div class="case-metric"><div class="v">+30%</div><div class="k">Cycle life</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card reveal d2">
+        <div class="case-thumb"><i class="fa-solid fa-wind"></i></div>
+        <div class="case-body">
+          <span class="case-tag">Energy</span>
+          <h3>Digital twin for a 250 MW wind farm</h3>
+          <p>SCADA-integrated virtual replica with predictive maintenance and yaw optimization models.</p>
+          <div class="case-metrics">
+            <div class="case-metric"><div class="v">+7.4%</div><div class="k">AEP</div></div>
+            <div class="case-metric"><div class="v">-35%</div><div class="k">Downtime</div></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     PROCESS
+     ====================================================================== -->
+<section class="section" id="process" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">How We Work</span>
+      <h2>A disciplined, transparent engineering process</h2>
+      <p>Every engagement follows a proven five-stage methodology — with clear deliverables, gates, and metrics at each step.</p>
+    </div>
+
+    <div class="process">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>Discover</h4>
+        <p>Requirements capture, stakeholder interviews, and feasibility study.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="step-num">02</div>
+        <h4>Design</h4>
+        <p>Concept modeling, trade studies, and detailed CAD development.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="step-num">03</div>
+        <h4>Simulate</h4>
+        <p>FEA, CFD, thermal, and durability analysis to validate the design.</p>
+      </div>
+      <div class="step reveal d3">
+        <div class="step-num">04</div>
+        <h4>Validate</h4>
+        <p>Prototype, physical test, correlation, and design freeze.</p>
+      </div>
+      <div class="step reveal d4">
+        <div class="step-num">05</div>
+        <h4>Deliver</h4>
+        <p>Production drawings, PLM handover, and manufacturing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     INSIGHTS
+     ====================================================================== -->
+<section class="section" id="insights">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Insights</span>
+      <h2>Thought leadership from our engineering bench</h2>
+      <p>Deep dives, technical notes, and industry perspectives from the 3D Mech Design team.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="insight-card reveal">
+        <div class="insight-date">Mar 12, 2025 · CAE</div>
+        <h4>Nonlinear FEA: when linear analysis stops being enough</h4>
+        <p>Understanding material nonlinearity, large deformation, and contact — and when to justify the compute cost.</p>
+        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="insight-card reveal d1">
+        <div class="insight-date">Feb 28, 2025 · Digital Twin</div>
+        <h4>From CAD to digital twin: a practical roadmap</h4>
+        <p>How to move from static 3D models to live, sensor-driven virtual assets without a multi-year program.</p>
+        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+      <article class="insight-card reveal d2">
+        <div class="insight-date">Feb 14, 2025 · Manufacturing</div>
+        <h4>DfAM rules every mechanical engineer should know</h4>
+        <p>Ten design-for-additive-manufacturing principles that separate a printable part from a production part.</p>
+        <a href="#" class="card-link" style="margin-top:18px;">Read article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     CAREERS
+     ====================================================================== -->
+<section class="section" id="careers" style="background: var(--bg-alt);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Careers</span>
+      <h2>Build things that matter</h2>
+      <p>We hire engineers who are curious, rigorous, and want to see their designs fly, drive, and power the world.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card reveal">
+        <div class="card-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+        <h3>Senior CAD Engineer</h3>
+        <p>Full-time · Remote / Hybrid · 5+ years</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Expert in SolidWorks / NX / CATIA</li>
+          <li><i class="fa-solid fa-check"></i> GD&T and tolerance stack-up</li>
+          <li><i class="fa-solid fa-check"></i> Aerospace or automotive background</li>
+        </ul>
+        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>CAE Simulation Analyst</h3>
+        <p>Full-time · Remote / Hybrid · 4+ years</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Ansys / Abaqus / STAR-CCM+</li>
+          <li><i class="fa-solid fa-check"></i> Nonlinear and dynamic analysis</li>
+          <li><i class="fa-solid fa-check"></i> Strong reporting & storytelling</li>
+        </ul>
+        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Automation Engineer</h3>
+        <p>Full-time · On-site · 3+ years</p>
+        <ul class="card-list">
+          <li><i class="fa-solid fa-check"></i> Robotic cell & EOAT design</li>
+          <li><i class="fa-solid fa-check"></i> PLC, motion, and vision systems</li>
+          <li><i class="fa-solid fa-check"></i> Hands-on commissioning experience</li>
+        </ul>
+        <a href="#contact" class="card-link">Apply now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     CTA BANNER
+     ====================================================================== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ready to engineer something exceptional?</h2>
+      <p>Tell us about your project. We'll respond within one business day with a technical point of view and a clear next step.</p>
+      <a href="#contact" class="btn btn-primary btn-lg">
+        Start a Conversation <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     CONTACT
+     ====================================================================== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's talk engineering</h2>
+      <p>Whether you need a single simulation or a full product development partner, we're ready.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item reveal">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Headquarters</h4>
+            <p>3D Mech Design Studio<br>Industrial Park, Building 12<br>Your City, Country</p>
+          </div>
+        </div>
+        <div class="contact-item reveal d1">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:hello@3dmechdesign.com">hello@3dmechdesign.com</a><br>
+            <a href="mailto:careers@3dmechdesign.com">careers@3dmechdesign.com</a>
+          </div>
+        </div>
+        <div class="contact-item reveal d2">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:+10000000000">+1 (000) 000-0000</a>
+          </div>
+        </div>
+        <div class="contact-item reveal d3">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Monday – Friday · 09:00 – 18:00<br>Weekend support available on request</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal d1" id="contactForm" novalidate>
+        <div class="form-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check"></i> Thank you — your message has been sent. We'll reply shortly.
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@company.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Acme Aerospace">
+          </div>
+          <div class="form-group">
+            <label for="service">Service of Interest</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option>3D CAD & Modeling</option>
+              <option>CAE Simulation</option>
+              <option>Digital Twin</option>
+              <option>Automation & Robotics</option>
+              <option>Additive Manufacturing</option>
+              <option>Compliance & Certification</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Project Details</label>
+          <textarea id="message" name="message" required placeholder="Tell us about your project, timeline, and goals..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================================================================
+     FOOTER
+     ====================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">
+          <span class="logo-mark"><i class="fa-solid fa-cube"></i></span>
+          <span class="logo-text">
+            <span>3D Mech Design</span>
+            <span>Engineering Excellence</span>
+          </span>
+        </a>
+        <p>Precision mechanical engineering, simulation, and digital twin services for the world's most demanding industries.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">3D CAD & Modeling</a></li>
+          <li><a href="#services">CAE Simulation</a></li>
+          <li><a href="#services">Digital Twin</a></li>
+          <li><a href="#services">Automation & Robotics</a></li>
+          <li><a href="#services">Additive Manufacturing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#cases">Case Studies</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#insights">Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> 3D Mech Design. All rights reserved.</span>
+      <span>Engineered with <i class="fa-solid fa-heart" style="color:var(--red)"></i> for builders.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ======================================================================
+     JAVASCRIPT
+     ====================================================================== -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- THEME TOGGLE ---------- */
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const themeIcon = themeBtn.querySelector('i');
+
+  const savedTheme = localStorage.getItem('3dmd-theme');
+  if (savedTheme) {
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+  }
+
+  themeBtn.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('3dmd-theme', next);
+    updateThemeIcon(next);
+  });
+
+  function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'dark'
+      ? 'fa-solid fa-sun'
+      : 'fa-solid fa-moon';
+  }
+
+  /* ---------- MOBILE MENU ---------- */
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const icon = menuBtn.querySelector('i');
+    icon.className = navLinks.classList.contains('open')
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars';
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+    });
+  });
+
+  /* ---------- HEADER SCROLL ---------- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+    document.getElementById('toTop').classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+
+  /* ---------- BACK TO TOP ---------- */
+  document.getElementById('toTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- SCROLL REVEAL ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ---------- ACTIVE NAV LINK ---------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navAnchors.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => navIO.observe(s));
+
+  /* ---------- CONTACT FORM (demo) ---------- */
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--red)';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+    success.classList.add('show');
+    form.reset();
+    setTimeout(() => success.classList.remove('show'), 6000);
+  });
+
+  /* ---------- FOOTER YEAR ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
